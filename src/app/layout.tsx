@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "UPRIT Grupo 3 — Atención a la Diversidad e Inclusión Social",
+  title: "UPRIT Grupo 5 — Atención a la Diversidad e Inclusión Social",
   description:
     "Trabajo académico sobre epistemología de la diversidad, evolución histórica de modelos de atención, casos de estudio y marco normativo peruano.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "PEP",
     "MINEDU",
   ],
-  authors: [{ name: "Grupo 3 - UPRIT" }],
+  authors: [{ name: "Grupo 5 - UPRIT" }],
 };
 
 export default function RootLayout({

@@ -3,62 +3,89 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, Landmark } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Inicio", href: "/" },
-  { label: "Inclusión", href: "/inclusion" },
-  { label: "Caso Sofía", href: "/caso-sofia" },
-  { label: "Caso Juan", href: "/caso-juan" },
-  { label: "BAP", href: "/bap" },
-  { label: "Normativa", href: "/normativa" },
+  { label: "INICIO", href: "/" },
+  { label: "CASO VALERIA", href: "/caso-valeria" },
+  { label: "CASO JUAN", href: "/caso-juan" },
+  { label: "BAP — VALERIA", href: "/bap-valeria" },
+  { label: "BAP — JUAN", href: "/bap-juan" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
 
   return (
-    <header role="banner" className="sticky top-0 z-50 glass-header">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+    <header className="sticky top-0 z-[100] h-16 bg-[#1E2A5E]/90 backdrop-blur-[8px] border-bottom border-white/10 px-8 flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
+        
+        {/* Left Side: Brand Logo & Texts */}
+        <Link
+          href="/"
+          className="flex items-center gap-3 transition-opacity duration-200 hover:opacity-95"
+          aria-label="Ir al inicio"
+        >
+          {/* Square Rounded Logo Container */}
           
-          {/* Logo Brand with Image Placeholder */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 transition-opacity duration-200 hover:opacity-90"
-            aria-label="Ir al inicio"
-          >
-            <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 border border-white/10 shadow-inner overflow-hidden">
-              {!logoError ? (
-                <img
-                  src="/images/logoUPRIT.png"
-                  alt="Logo UPRIT"
-                  onError={() => setLogoError(true)}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-brand-indigo/10 text-brand-teal">
-                  <Landmark className="h-5.5 w-5.5" />
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col">
-              <span className="text-base font-extrabold tracking-tight text-white leading-none">
-                UPRIT — Grupo 3
-              </span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-brand-teal mt-1">
-                Diversidad e Inclusión Social
-              </span>
-            </div>
-          </Link>
+          <div className="flex flex-col justify-center">
+            <span className="text-sm font-bold text-white leading-none">
+              UPRIT — Grupo 5
+            </span>
+            <span className="text-[11px] font-medium text-[#2D9B6F] mt-0.5 leading-none">
+              Atención a la Diversidad e Inclusión Social
+            </span>
+          </div>
+        </Link>
 
-          {/* Desktop Navigation */}
+        {/* Center Side: Desktop Navigation Links */}
+        <nav
+          role="navigation"
+          aria-label="Navegación principal"
+          className="hidden lg:flex items-end h-16"
+        >
+          <div className="flex items-center gap-1 h-full pt-4">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-[13px] px-3.5 py-2 rounded-t-md transition-all duration-200 uppercase tracking-wider ${
+                    isActive
+                      ? "text-white font-semibold border-b-2 border-[#2D9B6F] bg-white/8"
+                      : "text-white/60 hover:text-white/90"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <div className="flex items-center lg:hidden">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg hover:bg-white/10 text-white transition-colors"
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+
+      </div>
+
+      {/* Mobile Navigation Dropdown */}
+      {mobileMenuOpen && (
+        <div className="absolute top-16 left-0 right-0 bg-[#1E2A5E] border-t border-white/10 shadow-xl lg:hidden animate-fade-in-up">
           <nav
             role="navigation"
-            aria-label="Navegación principal"
-            className="hidden lg:flex items-center gap-2"
+            aria-label="Navegación móvil"
+            className="flex flex-col p-4 gap-1"
           >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -66,10 +93,11 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`rounded-xl px-4 py-2.5 text-[12px] font-extrabold uppercase tracking-wider transition-all duration-200 ${
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`rounded-lg px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all ${
                     isActive
-                      ? "bg-brand-indigo text-white shadow-md shadow-brand-indigo/25"
-                      : "text-text-secondary hover:bg-white/5 hover:text-white"
+                      ? "bg-white/10 text-[#2D9B6F]"
+                      : "text-white/70 hover:bg-white/5 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -77,51 +105,8 @@ export default function Navbar() {
               );
             })}
           </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center lg:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-white/5 text-white transition-colors"
-              aria-expanded={mobileMenuOpen}
-              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-            >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-          </div>
-
         </div>
-
-        {/* Mobile Navigation Dropdown */}
-        {mobileMenuOpen && (
-          <nav
-            role="navigation"
-            aria-label="Navegación móvil"
-            className="lg:hidden border-t border-white/5 pb-5 pt-3 animate-fade-in-up"
-          >
-            <div className="flex flex-col gap-1.5">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`rounded-xl px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider transition-all ${
-                      isActive
-                        ? "bg-brand-indigo text-white"
-                        : "text-text-secondary hover:bg-white/5 hover:text-white"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-          </nav>
-        )}
-
-      </div>
+      )}
     </header>
   );
 }

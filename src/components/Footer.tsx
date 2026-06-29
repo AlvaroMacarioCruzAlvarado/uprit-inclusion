@@ -1,21 +1,47 @@
-import { Landmark } from "lucide-react";
+"use client";
+
+import Link from "next/link";
+
+const footerLinks = [
+  { label: "Inicio", href: "/" },
+  { label: "Caso Valeria", href: "/caso-valeria" },
+  { label: "Caso Juan", href: "/caso-juan" },
+  { label: "BAP — Valeria", href: "/bap-valeria" },
+  { label: "BAP — Juan", href: "/bap-juan" },
+];
 
 export default function Footer() {
   return (
-    <footer role="contentinfo" className="mt-auto border-t border-slate-200 bg-white py-8">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="flex flex-col items-center justify-center gap-3">
-          <div className="flex items-center gap-2 text-text-title font-bold text-sm">
-            <Landmark className="h-4.5 w-4.5 text-brand-accent" />
-            <span>Universidad Privada de Trujillo</span>
-          </div>
-          <p className="text-xs font-semibold text-text-muted uppercase tracking-wider">
-            Grupo 3 | DIVERSIDAD E INCLUSIÓN SOCIAL
-          </p>
-          <p className="text-[10px] text-text-muted mt-2">
-            © {new Date().getFullYear()} UPRIT. Todos los derechos reservados. Exposición Académica.
-          </p>
+    <footer className="bg-[#1E2A5E] text-white py-10 mt-auto border-t border-white/10">
+      <div className="mx-auto max-w-7xl px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        
+        {/* Left Section */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <span className="text-sm font-bold tracking-tight">
+            Universidad Privada de Trujillo
+          </span>
+          <span className="text-xs text-white/60 mt-1">
+            Grupo 5 · Diversidad e Inclusión Social
+          </span>
         </div>
+
+        {/* Right Section: Links */}
+        <nav
+          role="navigation"
+          aria-label="Enlaces secundarios"
+          className="flex flex-wrap justify-center gap-6"
+        >
+          {footerLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-xs text-white/55 hover:text-white/90 transition-colors uppercase tracking-wider font-semibold"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
       </div>
     </footer>
   );

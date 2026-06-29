@@ -6,36 +6,28 @@ import {
   Brain,
   Database,
   Zap,
-  BookOpen,
   MessageSquare,
+  BookOpen,
   AlertTriangle,
   FileText,
   Download,
   CheckCircle,
+  X,
   Clock,
   Layout,
-  UserCheck,
-  Package,
-  Award
+  UserCheck
 } from "lucide-react";
 
-export default function CasoJuanPage() {
-  const [widths, setWidths] = useState({ memoria: 0, atencion: 0, inhibicion: 0 });
+export default function CasoValeriaPage() {
+  const [widths, setWidths] = useState({ atencion: 0, memoria: 0, inhibicion: 0 });
 
   useEffect(() => {
+    // Triggers layout mount animation
     const timer = setTimeout(() => {
-      setWidths({ memoria: 80, atencion: 65, inhibicion: 60 });
+      setWidths({ atencion: 85, memoria: 80, inhibicion: 65 });
     }, 100);
     return () => clearTimeout(timer);
   }, []);
-
-  const apoyos = [
-    { label: "TIEMPO", desc: "Ampliar tiempo de evaluación en 25%", icon: Clock, bg: "bg-[#DBEAFE] text-[#2563EB] border-[#BFDBFE]" },
-    { label: "FORMATO", desc: "Uso de esquemas y gráficos para relaciones numéricas", icon: Layout, bg: "bg-[#E6F4EA] text-[#2D9B6F] border-[#A7F3D0]" },
-    { label: "MEDIACIÓN", desc: "Explicaciones paso a paso con retroalimentación verbal", icon: UserCheck, bg: "bg-[#FEF3C7] text-[#D97706] border-[#FDE68A]" },
-    { label: "MATERIALES", desc: "Uso de material concreto y visual manipulativo", icon: Package, bg: "bg-[#EEF2FF] text-[#3730A3] border-[#C7D2FE]" },
-    { label: "EVALUACIÓN", desc: "Valorar el razonamiento conceptual más que la rapidez", icon: Award, bg: "bg-[#FEE2E2] text-[#DC2626] border-[#FECACA]" },
-  ];
 
   return (
     <div className="animate-fade-in-up">
@@ -46,15 +38,16 @@ export default function CasoJuanPage() {
         {/* HEADER BLOCK */}
         <div className="mb-10 pb-6 border-b border-[#1E2A5E]/10">
           <nav className="text-xs text-[#6B7280] font-semibold mb-2 tracking-wider uppercase">
-            <Link href="/" className="hover:text-[#1E2A5E] transition-colors">Inicio</Link> / Caso Juan
+            <Link href="/" className="hover:text-[#1E2A5E] transition-colors">Inicio</Link> / Caso Valeria
           </nav>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <h1 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-[#1E2A5E]">
-                Caso Juan Pérez Gómez — Pensamiento Abstracto
+                Caso Valeria R. — TDAH Tipo Combinado
               </h1>
               <p className="text-sm text-[#6B7280] mt-2 leading-relaxed max-w-3xl">
-                Ficha de análisis de barreras para el aprendizaje en matemática (3er grado de secundaria) con propuesta de apoyos inclusivos.
+                Análisis jurídico-pedagógico de las barreras al aprendizaje matemático en una estudiante con TDAH,
+                con propuesta de ajustes razonables bajo el enfoque DUA.
               </p>
             </div>
             <div className="text-xs font-semibold text-[#3730A3] uppercase tracking-widest bg-[#EEF2FF] border border-[#C7D2FE] px-3 py-1.5 rounded-md shrink-0">
@@ -65,33 +58,34 @@ export default function CasoJuanPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* LEFT COLUMN: 60% */}
+          {/* LEFT COLUMN: 60% (lg:col-span-7) */}
           <div className="lg:col-span-7 space-y-8">
             
             {/* TARJETA 1 — IDENTIFICACIÓN */}
-            <div className="academic-card bg-white">
+            <div className="academic-card">
               <span className="eyebrow-label block mb-2">Identificación</span>
-              <h2 className="card-title mb-4">Identificación del Estudiante</h2>
+              <h2 className="card-title mb-4">Identificación de la Estudiante</h2>
               
               <div className="space-y-0 mb-6">
                 <div className="ficha-row">
                   <span className="ficha-label">Estudiante</span>
-                  <span className="ficha-value">Juan Pérez Gómez</span>
+                  <span className="ficha-value">Valeria R.</span>
                 </div>
                 <div className="ficha-row">
                   <span className="ficha-label">Edad / Grado</span>
-                  <span className="ficha-value">14 años / 3.º de Secundaria</span>
+                  <span className="ficha-value">15 años / 4to de Secundaria</span>
                 </div>
                 <div className="ficha-row">
                   <span className="ficha-label">Diagnóstico</span>
                   <span className="inline-block bg-[#EEF2FF] text-[#3730A3] border border-[#C7D2FE] rounded-full px-3 py-1 text-xs font-semibold">
-                    Dificultades en Pensamiento Abstracto
+                    TDAH Tipo Combinado
                   </span>
                 </div>
                 <div className="ficha-row flex-col items-start gap-2">
                   <span className="ficha-label self-start">Perfil General</span>
                   <p className="text-sm text-[#1A1A2E] leading-relaxed">
-                    Dificultades en identificación de patrones numéricos, interpretación de expresiones algebraicas y resolución de problemas matemáticos complejos.
+                    Alta capacidad creativa y pensamiento divergente. Presenta dificultades específicas para mantener
+                    la atención focalizada y sostenida en procesos algebraicos y aritméticos de larga duración.
                   </p>
                 </div>
               </div>
@@ -103,12 +97,12 @@ export default function CasoJuanPage() {
                     <FileText className="h-5 w-5" />
                   </div>
                   <div className="text-left">
-                    <h4 className="text-xs font-bold text-[#1A1A2E] leading-tight">Ficha Completa de Juan</h4>
-                    <span className="text-[10px] text-[#6B7280]">CASO_JUAN_MATEMATICA.docx</span>
+                    <h4 className="text-xs font-bold text-[#1A1A2E] leading-tight">Ficha Completa de Valeria</h4>
+                    <span className="text-[10px] text-[#6B7280]">TAREA_N_03_CASO_VALERIA.docx</span>
                   </div>
                 </div>
                 <a
-                  href="/documentos/CASO_JUAN_MATEMATICA.docx"
+                  href="/documentos/TAREA_N_03_CASO_VALERIA.docx"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#1E2A5E] hover:bg-[#2D3E82] text-xs font-bold uppercase tracking-wider text-white px-5 py-3 transition-colors cursor-pointer"
@@ -120,12 +114,37 @@ export default function CasoJuanPage() {
             </div>
 
             {/* TARJETA 2 — PERFIL NEUROCOGNITIVO */}
-            <div className="academic-card bg-white">
+            <div className="academic-card">
               <span className="eyebrow-label block mb-2">Perfil Neurocognitivo</span>
               <h2 className="card-title mb-6">Funciones Ejecutivas Afectadas</h2>
               
               <div className="space-y-6">
                 {/* FE 1 */}
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <div className="h-9 w-9 rounded-lg bg-[#3730A3]/10 text-[#3730A3] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Brain className="h-4.5 w-4.5" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-[#1E2A5E]">Atención Sostenida</h3>
+                      <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
+                        Dificultades severas para mantener atención. Se distrae fácilmente con estímulos auditivos periféricos en el aula.
+                      </p>
+                    </div>
+                  </div>
+                  {/* Severity Bar */}
+                  <div className="pl-12 flex items-center gap-4">
+                    <div className="flex-1 bg-[#F0F0F4] h-1.5 rounded-full overflow-hidden">
+                      <div
+                        style={{ width: `${widths.atencion}%` }}
+                        className="bg-[#DC2626] h-full rounded-full transition-all duration-700 ease-out"
+                      />
+                    </div>
+                    <span className="text-xs font-black text-[#DC2626] w-8 text-right">{widths.atencion}%</span>
+                  </div>
+                </div>
+
+                {/* FE 2 */}
                 <div className="space-y-2">
                   <div className="flex items-start gap-3">
                     <div className="h-9 w-9 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -134,7 +153,7 @@ export default function CasoJuanPage() {
                     <div>
                       <h3 className="text-sm font-bold text-[#1E2A5E]">Memoria de Trabajo</h3>
                       <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
-                        Dificultad para recordar procedimientos complejos. Olvida el objetivo intermedio mientras resuelve una operación.
+                        Dificultad para retener la secuencia de pasos en algoritmos complejos. Olvida el objetivo intermedio al resolver.
                       </p>
                     </div>
                   </div>
@@ -150,31 +169,6 @@ export default function CasoJuanPage() {
                   </div>
                 </div>
 
-                {/* FE 2 */}
-                <div className="space-y-2">
-                  <div className="flex items-start gap-3">
-                    <div className="h-9 w-9 rounded-lg bg-[#3730A3]/10 text-[#3730A3] flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Brain className="h-4.5 w-4.5" />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-bold text-[#1E2A5E]">Atención</h3>
-                      <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
-                        Se distrae fácilmente durante actividades prolongadas.
-                      </p>
-                    </div>
-                  </div>
-                  {/* Severity Bar */}
-                  <div className="pl-12 flex items-center gap-4">
-                    <div className="flex-1 bg-[#F0F0F4] h-1.5 rounded-full overflow-hidden">
-                      <div
-                        style={{ width: `${widths.atencion}%` }}
-                        className="bg-[#E8A020] h-full rounded-full transition-all duration-700 ease-out"
-                      />
-                    </div>
-                    <span className="text-xs font-black text-[#E8A020] w-8 text-right">{widths.atencion}%</span>
-                  </div>
-                </div>
-
                 {/* FE 3 */}
                 <div className="space-y-2">
                   <div className="flex items-start gap-3">
@@ -182,9 +176,9 @@ export default function CasoJuanPage() {
                       <Zap className="h-4.5 w-4.5" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-[#1E2A5E]">Inhibición</h3>
+                      <h3 className="text-sm font-bold text-[#1E2A5E]">Inhibición / Impulsividad</h3>
                       <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
-                        Responde impulsivamente. Resuelve sin leer completamente el enunciado, cometiendo errores por omisión de datos clave.
+                        Resuelve los primeros pasos sin leer completamente el enunciado, cometiendo errores por omisión de datos clave.
                       </p>
                     </div>
                   </div>
@@ -202,44 +196,47 @@ export default function CasoJuanPage() {
               </div>
             </div>
 
-            {/* TARJETA 3 — BAP */}
-            <div className="academic-card bg-white">
+            {/* TARJETA 3 — BARRERAS AL APRENDIZAJE (BAP) */}
+            <div className="academic-card">
               <span className="eyebrow-label block mb-2">Barreras Identificadas</span>
               <h2 className="card-title mb-6">Barreras al Aprendizaje y la Participación</h2>
               
               <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="h-9 w-9 rounded-lg bg-[#FEF3C7] text-[#D97706] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <BookOpen className="h-4.5 w-4.5" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[#1E2A5E]">Patrones Matemáticos</h3>
-                    <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
-                      Dificultad para identificar patrones matemáticos en sucesiones y series.
-                    </p>
-                  </div>
-                </div>
-
+                {/* BAP 1 */}
                 <div className="flex items-start gap-4">
                   <div className="h-9 w-9 rounded-lg bg-[#FEE2E2] text-[#DC2626] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MessageSquare className="h-4.5 w-4.5" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#1E2A5E]">Relaciones Abstractas</h3>
+                    <h3 className="text-sm font-bold text-[#1E2A5E]">Barrera Didáctica</h3>
                     <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
-                      Problemas para comprender relaciones abstractas y transposición de términos algebraicos.
+                      Explicaciones verbales prolongadas sin apoyo visual generan desconexión rápida en la estudiante.
                     </p>
                   </div>
                 </div>
 
+                {/* BAP 2 */}
                 <div className="flex items-start gap-4">
                   <div className="h-9 w-9 rounded-lg bg-[#FEF3C7] text-[#D97706] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <BookOpen className="h-4.5 w-4.5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#1E2A5E]">Barrera Curricular</h3>
+                    <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
+                      Evaluaciones con texto lineal excesivo saturan la memoria de trabajo, impidiendo acceder a la lógica matemática.
+                    </p>
+                  </div>
+                </div>
+
+                {/* BAP 3 */}
+                <div className="flex items-start gap-4">
+                  <div className="h-9 w-9 rounded-lg bg-[#FEE2E2] text-[#DC2626] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <AlertTriangle className="h-4.5 w-4.5" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-[#1E2A5E]">Apoyos Visuales</h3>
+                    <h3 className="text-sm font-bold text-[#1E2A5E]">Barrera Actitudinal</h3>
                     <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
-                      Necesidad constante de apoyos visuales explícitos y ejemplos resueltos paso a paso como guía modelo.
+                      La exigencia de "terminar rápido" genera ansiedad que bloquea el razonamiento abstracto.
                     </p>
                   </div>
                 </div>
@@ -247,37 +244,63 @@ export default function CasoJuanPage() {
             </div>
 
             {/* TARJETA 4 — PROPUESTA DE APOYOS */}
-            <div className="academic-card bg-white">
+            <div className="academic-card">
               <span className="eyebrow-label block mb-2">Propuesta de Intervención</span>
               <h2 className="card-title mb-6">Ajustes Razonables Propuestos</h2>
               
-              {/* Supporting Table style grid */}
-              <div className="border border-[#F0F0F4] rounded-xl overflow-hidden divide-y divide-[#F0F0F4]">
-                {apoyos.map((apoyo, idx) => {
-                  const IconComponent = apoyo.icon;
-                  return (
-                    <div key={idx} className="flex flex-col sm:flex-row sm:items-center p-4.5 gap-3 sm:gap-4 hover:bg-[#F5F6FA]/30 transition-colors">
-                      <div className={`inline-flex items-center justify-center rounded border px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider w-24 flex-shrink-0 ${apoyo.bg}`}>
-                        {apoyo.label}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <IconComponent className="h-4 w-4 text-[#6B7280] flex-shrink-0" />
-                        <span className="text-xs font-semibold text-[#1A1A2E]">{apoyo.desc}</span>
-                      </div>
-                    </div>
-                  );
-                })}
+              <div className="space-y-6">
+                {/* AP 1 */}
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex items-center justify-center rounded bg-[#DBEAFE] text-[#2563EB] border border-[#BFDBFE] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider flex-shrink-0 w-24">
+                    TIEMPO
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#1E2A5E]">Pausas Activas</h3>
+                    <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
+                      Periodos de descanso breves durante sesiones largas para regular la fatiga cognitiva.
+                    </p>
+                  </div>
+                </div>
+
+                {/* AP 2 */}
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex items-center justify-center rounded bg-[#E6F4EA] text-[#2D9B6F] border border-[#A7F3D0] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider flex-shrink-0 w-24">
+                    FORMATO
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#1E2A5E]">Guías con Enfoque DUA</h3>
+                    <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
+                      Esquemas visuales, colores por término algebraico, subtítulos claros. Permitir infografías con fórmulas clave.
+                    </p>
+                  </div>
+                </div>
+
+                {/* AP 3 */}
+                <div className="flex items-start gap-4">
+                  <div className="inline-flex items-center justify-center rounded bg-[#FEF3C7] text-[#D97706] border border-[#FDE68A] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider flex-shrink-0 w-24">
+                    MEDIACIÓN
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#1E2A5E]">Modelado de Pensamiento</h3>
+                    <p className="text-xs text-[#6B7280] leading-relaxed mt-1">
+                      Pensar en voz alta al resolver + checklists adhesivos para no saltar pasos del algoritmo.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* TARJETA 5 — META DE LOGRO */}
-            <div className="academic-card bg-white">
+            {/* TARJETA 5 — METAS DE LOGRO */}
+            <div className="academic-card">
               <span className="eyebrow-label block mb-2">Metas Trimestrales</span>
               <h2 className="card-title mb-4">Competencia Matemática — Meta de Logro</h2>
               
               <div className="mb-6">
-                <p className="text-xs text-[#1A1A2E] leading-relaxed bg-[#F5F6FA] p-4.5 rounded-xl border border-[#1E2A5E]/8">
-                  "Al finalizar el trimestre, Juan será capaz de identificar patrones numéricos, resolver secuencias matemáticas con un 80% de precisión e interpretar expresiones algebraicas básicas."
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#E6F4EA] text-[#2D9B6F] px-4 py-1.5 text-xs font-semibold">
+                  Competencia: Resuelve problemas de regularidad, equivalencia y cambio
+                </span>
+                <p className="text-xs text-[#1A1A2E] leading-relaxed mt-3.5 bg-[#F5F6FA] p-4.5 rounded-xl border border-[#1E2A5E]/8">
+                  "Al finalizar el trimestre, Valeria logrará identificar, representar y resolver ecuaciones de primer grado con una incógnita, transitando de la representación concreta (balanzas digitales / material manipulativo) a la representación simbólica, manteniendo estructura de pasos en al menos el 80% de los ejercicios propuestos."
                 </p>
               </div>
 
@@ -292,20 +315,58 @@ export default function CasoJuanPage() {
                 </div>
               </div>
 
-              {/* Conclusion Block */}
-              <div className="bg-[#EEF2FF] border-l-4 border-[#3730A3] p-5 rounded-r-xl">
-                <h4 className="text-xs font-bold text-[#3730A3] uppercase tracking-wider mb-1">
-                  Conclusión Pedagógica
-                </h4>
-                <p className="text-xs text-[#1A1A2E] leading-relaxed">
-                  La implementación de ajustes razonables y estrategias inclusivas permitirá mejorar el aprendizaje matemático del estudiante, favoreciendo el desarrollo de sus funciones ejecutivas y competencias académicas.
-                </p>
+              <h3 className="text-sm font-bold text-[#1E2A5E] uppercase tracking-wider border-t border-[#F0F0F4] pt-6 mb-4">
+                Indicadores de Pensamiento Abstracto Fallido
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* IND 1 */}
+                <div className="bg-white border border-[#FEE2E2] rounded-xl p-4.5 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-bold text-[#DC2626] uppercase">IND 1</span>
+                      <X className="h-4 w-4 text-[#DC2626]" />
+                    </div>
+                    <h4 className="text-xs font-bold text-[#1E2A5E] leading-snug">Falla en Traducción Lingüística</h4>
+                  </div>
+                  <p className="text-[11px] text-[#6B7280] leading-normal mt-2 pt-2 border-t border-[#F0F0F4]">
+                    Incapacidad de convertir un enunciado narrativo a una expresión algebraica básica.
+                  </p>
+                </div>
+
+                {/* IND 2 */}
+                <div className="bg-white border border-[#FEE2E2] rounded-xl p-4.5 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-bold text-[#DC2626] uppercase">IND 2</span>
+                      <X className="h-4 w-4 text-[#DC2626]" />
+                    </div>
+                    <h4 className="text-xs font-bold text-[#1E2A5E] leading-snug">Falla en Automatización</h4>
+                  </div>
+                  <p className="text-[11px] text-[#6B7280] leading-normal mt-2 pt-2 border-t border-[#F0F0F4]">
+                    Incapacidad para recordar la secuencia lógica de un procedimiento sin el ejemplo modelo al frente.
+                  </p>
+                </div>
+
+                {/* IND 3 */}
+                <div className="bg-white border border-[#FEE2E2] rounded-xl p-4.5 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-bold text-[#DC2626] uppercase">IND 3</span>
+                      <X className="h-4 w-4 text-[#DC2626]" />
+                    </div>
+                    <h4 className="text-xs font-bold text-[#1E2A5E] leading-snug">Falla en Manipulación Mental</h4>
+                  </div>
+                  <p className="text-[11px] text-[#6B7280] leading-normal mt-2 pt-2 border-t border-[#F0F0F4]">
+                    Dificultad para mantener una variable "x" en la memoria de trabajo durante transposición de términos.
+                  </p>
+                </div>
               </div>
             </div>
 
           </div>
 
-          {/* RIGHT COLUMN: 40% */}
+          {/* RIGHT COLUMN: 40% (lg:col-span-5) */}
           <aside className="lg:col-span-5 lg:sticky lg:top-20 space-y-8">
             <div className="academic-card bg-white">
               <span className="eyebrow-label block mb-2">Resumen del Caso</span>
@@ -313,6 +374,16 @@ export default function CasoJuanPage() {
 
               {/* Metrics */}
               <div className="space-y-4 mb-6">
+                <div className="space-y-1">
+                  <div className="flex justify-between text-xs font-semibold text-[#1A1A2E]">
+                    <span>Atención Sostenida</span>
+                    <span className="font-bold text-[#DC2626]">{widths.atencion}%</span>
+                  </div>
+                  <div className="w-full bg-[#F0F0F4] h-2 rounded-full overflow-hidden">
+                    <div style={{ width: `${widths.atencion}%` }} className="bg-[#DC2626] h-full rounded-full transition-all duration-700 ease-out" />
+                  </div>
+                </div>
+
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs font-semibold text-[#1A1A2E]">
                     <span>Memoria de Trabajo</span>
@@ -325,17 +396,7 @@ export default function CasoJuanPage() {
 
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs font-semibold text-[#1A1A2E]">
-                    <span>Atención</span>
-                    <span className="font-bold text-[#E8A020]">{widths.atencion}%</span>
-                  </div>
-                  <div className="w-full bg-[#F0F0F4] h-2 rounded-full overflow-hidden">
-                    <div style={{ width: `${widths.atencion}%` }} className="bg-[#E8A020] h-full rounded-full transition-all duration-700 ease-out" />
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold text-[#1A1A2E]">
-                    <span>Inhibición</span>
+                    <span>Inhibición / Impulsividad</span>
                     <span className="font-bold text-[#E8A020]">{widths.inhibicion}%</span>
                   </div>
                   <div className="w-full bg-[#F0F0F4] h-2 rounded-full overflow-hidden">
@@ -351,11 +412,11 @@ export default function CasoJuanPage() {
               <div className="space-y-0 mb-6">
                 <div className="ficha-row py-2.5">
                   <span className="ficha-label">Diagnóstico</span>
-                  <span className="ficha-value">Pensamiento Abstracto</span>
+                  <span className="ficha-value">TDAH Tipo Combinado</span>
                 </div>
                 <div className="ficha-row py-2.5">
                   <span className="ficha-label">Grado</span>
-                  <span className="ficha-value">3.º de Secundaria</span>
+                  <span className="ficha-value">4to de Secundaria</span>
                 </div>
                 <div className="ficha-row py-2.5">
                   <span className="ficha-label">Área</span>
@@ -363,7 +424,7 @@ export default function CasoJuanPage() {
                 </div>
                 <div className="ficha-row py-2.5">
                   <span className="ficha-label">Apoyos</span>
-                  <span className="ficha-value">5 ajustes razonables</span>
+                  <span className="ficha-value">3 ajustes razonables</span>
                 </div>
               </div>
 

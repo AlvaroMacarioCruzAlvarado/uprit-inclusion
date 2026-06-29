@@ -1,11 +1,9 @@
 Coloca aquí tus archivos de imagen con los siguientes nombres:
 
-1. logoUPRIT.png          (Logotipo de la UPRIT)
-2. uprit-banner.jpg       (Banner de la portada en Inicio)
-3. paradigmas-evolution.jpg (Gráfico de evolución histórica)
-4. caso-maria.png         (Caso de Sofía y la calculadora)
-5. juan.png               (Caso de Juan y la silla de ruedas)
-6. andrea-bap.jpg         (Matriz BAP de Andrea R.)
-7. docente-garante.jpg    (Imagen de docente para la Normativa)
+1. logoUPRIT.png          (Logotipo oficial de la UPRIT)
+2. uprit-banner.jpg       (Banner de la portada en el Inicio)
+3. caso-maria.png         (Caso de Valeria R. y el razonamiento)
+4. juan.png               (Caso de Juan Pérez Gómez y el pensamiento abstracto)
+5. andrea-bap.jpg         (Imagen ilustrativa para las matrices BAP)
 
-El sistema las cargará automáticamente una vez que estén guardadas en esta carpeta.
+El sistema las cargará automáticamente una vez que estén guardadas en esta carpeta. Si no se encuentran, se mostrarán elegantes iconos institucionales de reemplazo de forma segura sin romper la interfaz.

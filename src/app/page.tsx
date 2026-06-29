@@ -2,175 +2,131 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen, GraduationCap, Users, User, ArrowUpRight, Award, Compass, Landmark } from "lucide-react";
+import { ArrowRight, GraduationCap, Users, User, CheckCircle, Landmark } from "lucide-react";
 
 export default function Home() {
-  const [bannerError, setBannerError] = useState(false);
+  const [logoError, setLogoError] = useState(false);
+
   const integrantes = [
-    { name: "Sanchez Sanchez, Jorge", role: "Coordinador" },
-    { name: "Tejada Grandes, Luis Alberto", role: "Investigación" },
-    { name: "Saire Chipana, Javier", role: "Redacción" },
-    { name: "Rengifo Reategui, Janeth Natalia", role: "Diseño" },
-    { name: "Davila Huaman, Juan Carlos", role: "Edición" },
-    { name: "Cardenas, Jose Luis", role: "Revisión" },
+    { initials: "AS", name: "Alex Salvatierra", order: "01" },
+    { initials: "CE", name: "Cruz Eder", order: "02" },
+    { initials: "DC", name: "Dante Chavesta Rodriguez", order: "03" },
+    { initials: "MF", name: "Marco Ferre Paulo Cesar", order: "04" },
+    { initials: "RS", name: "Ramirez Sullca Charle Elmer", order: "05" },
+    { initials: "RR", name: "Ricardo Antonio Rodriguez Montalvo", order: "06" },
+    { initials: "SI", name: "Silvia Janina Iparraguirre Lecca", order: "07" },
   ];
 
   return (
-    <div className="relative overflow-hidden min-h-screen py-12 md:py-20 animate-fade-in-up">
-      {/* Decorative Orbs */}
-      <div className="orb orb-1" />
-      <div className="orb orb-2" />
+    <div className="animate-fade-in-up">
+      
+      {/* HERO SECTION */}
+      <section className="relative bg-[#1E2A5E] text-white py-4 md:py-4 overflow-hidden">
+        {/* SVG Grid Pattern at 6% Opacity */}
+        <div className="absolute inset-0 hero-grid-pattern opacity-6 pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        
-        {/* Banner Image Container */}
-        <div className="relative h-48 md:h-64 w-full rounded-3xl overflow-hidden mb-12 border border-white/10 shadow-2xl">
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/40 to-transparent z-10" />
-          {!bannerError ? (
-            <img
-              src="/images/uprit-banner.jpg"
-              alt="Universidad Privada de Trujillo - Diversidad e Inclusión"
-              onError={() => setBannerError(true)}
-              className="h-full w-full object-cover"
-            />
-          ) : (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-brand-indigo/30 via-bg-dark to-brand-teal/20 p-6 text-center">
-              <Landmark className="h-12 w-12 text-brand-teal mb-3 animate-pulse" />
-              <h3 className="text-lg font-bold uppercase tracking-widest text-slate-400">UPRIT Académico</h3>
-            </div>
-          )}
+        <div className="relative z-10 max-w-5xl mx-auto px-8 flex flex-col items-center text-center">
           
-          {/* Overlay Text */}
-          <div className="absolute bottom-6 left-6 md:left-10 z-20">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-teal mb-3">
-              <GraduationCap className="h-3.5 w-3.5" />
-              Universidad Privada de Trujillo
-            </div>
-            <h1 className="text-2xl md:text-4xl font-black uppercase text-white leading-tight">
-              Atención a la Diversidad e Inclusión
-            </h1>
-          </div>
-        </div>
-
-        {/* Section 1: Intro Pathways Grid */}
-        <div className="grid gap-6 md:grid-cols-2 mb-16">
-          <div className="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between">
-            <div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-indigo/10 border border-brand-indigo/20 text-brand-indigo mb-6">
-                <Compass className="h-6 w-6" />
+          {/* Centered Logo (Previous request: logo in the center and of a good size) */}
+          <div className="relative h-32 w-32 md:h-40 md:w-40 rounded-3xl bg-white p-3.5 border border-white/20 shadow-xl flex items-center justify-center overflow-hidden mb-8">
+            {!logoError ? (
+              <img
+                src="/images/logoUPRIT.png"
+                alt="Logo UPRIT"
+                onError={() => setLogoError(true)}
+                className="h-full w-full object-contain"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center text-brand-indigo bg-brand-indigo/5">
+                <Landmark className="h-16 w-16 text-[#1E2A5E]" />
               </div>
-              <span className="text-[9px] font-extrabold uppercase tracking-widest text-brand-teal block mb-2">
-                Trabajo de Investigación Nro 1
-              </span>
-              <h2 className="text-xl font-bold text-white leading-tight">
-                Epistemología y Paradigmas de la Discapacidad
-              </h2>
-              <p className="text-xs text-text-secondary mt-3 leading-relaxed">
-                Estudio pormenorizado de los modelos de prescindencia, médico-rehabilitador y el actual enfoque 
-                social de derechos humanos.
-              </p>
-            </div>
+            )}
+          </div>
+
+          {/* Eyebrow Pill */}
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/12 border border-white/20 px-4 py-1.5 text-xs font-semibold tracking-wider text-white mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2D9B6F] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2D9B6F]"></span>
+            </span>
+            Universidad Privada de Trujillo · Tarea N° 03
+          </div>
+
+          {/* H1 Title */}
+          <h1 className="text-3xl md:text-5xl font-extrabold uppercase leading-tight tracking-tight text-white max-w-3xl mb-4">
+            Atención a la <span className="text-[#E8A020]">Diversidad</span> e Inclusión Social
+          </h1>
+
+          {/* Subtitle/Paragraph */}
+          <p className="text-sm md:text-base text-white/72 max-w-xl leading-relaxed mb-8">
+            Análisis de casos prácticos con enfoque DUA y Marco Normativo Peruano.
+            <br className="hidden sm:inline" /> Carrera: Educación Secundaria — Matemática e Informática.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Link
-              href="/inclusion"
-              className="mt-8 group inline-flex w-fit items-center gap-2 rounded-xl bg-brand-indigo px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg shadow-brand-indigo/25 hover:bg-indigo-500 transition-all cursor-pointer"
+              href="/caso-valeria"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#2D9B6F] hover:bg-[#3BB882] px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-colors"
             >
-              Ver Paradigmas Históricos
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              Explorar Casos
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/bap-valeria"
+              className="inline-flex items-center justify-center rounded-lg border border-white/25 hover:bg-white/5 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-colors"
+            >
+              Ver Matrices BAP
             </Link>
           </div>
 
-          <div className="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between">
-            <div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-teal/10 border border-brand-teal/20 text-brand-teal mb-6">
-                <Award className="h-6 w-6" />
-              </div>
-              <span className="text-[9px] font-extrabold uppercase tracking-widest text-brand-teal block mb-2">
-                Normativas Nacionales y Aplicación
-              </span>
-              <h2 className="text-xl font-bold text-white leading-tight">
-                Marcos Jurídicos y Ajustes Razonables
-              </h2>
-              <p className="text-xs text-text-secondary mt-3 leading-relaxed">
-                Análisis de la jerarquía normativa peruana (LGE, D.S. N° 007-2021) y el rol docente garante 
-                a través del DUA, el SAE y el PEP.
-              </p>
-            </div>
-            <Link
-              href="/normativa"
-              className="mt-8 group inline-flex w-fit items-center gap-2 rounded-xl bg-brand-teal px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-bg-dark shadow-lg shadow-brand-teal/20 hover:bg-teal-400 transition-all cursor-pointer"
-            >
-              Explorar Marco Legal
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-
-        {/* Section 2: Group Information & Teacher Details */}
-        <div className="grid gap-8 lg:grid-cols-12 items-start">
           
-          {/* Teacher Info (4 cols) */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="glass-card rounded-2xl p-6">
-              <h3 className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-4">
-                Cátedra Académica
-              </h3>
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-brand-teal flex-shrink-0">
-                  <User className="h-6 w-6" />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-text-secondary">Docente a Cargo</h4>
-                  <p className="text-base font-extrabold text-white mt-0.5 leading-tight">
-                    Mag. Caballero Bardales Susana
-                  </p>
-                  <p className="text-[9px] text-text-muted mt-2 font-bold uppercase tracking-wider">
-                    Facultad de Derecho y Ciencias Sociales
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-brand-indigo/20 bg-brand-indigo/5 p-6 text-xs leading-relaxed text-text-secondary">
-              <h4 className="font-bold text-white uppercase tracking-wider mb-2 text-[10px]">
-                Enfoque de la Investigación
-              </h4>
-              Esta plataforma expone los lineamientos jurídicos y técnicos áulicos obligatorios para 
-              salvaguardar los derechos de inclusión frente a barreras operativas o físicas en el Perú.
-            </div>
-          </div>
-
-          {/* Students Grid (8 cols) */}
-          <div className="lg:col-span-8 glass-card rounded-2xl p-8">
-            <div className="flex items-center gap-2.5 mb-6">
-              <Users className="h-5 w-5 text-brand-teal" />
-              <h3 className="text-xs font-bold uppercase tracking-widest text-white">
-                Integrantes del Grupo Académico
-              </h3>
-            </div>
-            
-            <div className="grid gap-3 sm:grid-cols-2">
-              {integrantes.map((member, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center justify-between p-3.5 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/10 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-brand-indigo/10 border border-brand-indigo/20 text-xs font-extrabold text-brand-indigo">
-                      {idx + 1}
-                    </span>
-                    <span className="text-xs font-bold text-white">{member.name}</span>
-                  </div>
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-brand-teal px-2 py-0.5 rounded bg-brand-teal/5 border border-brand-teal/10">
-                    {member.role}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
 
         </div>
+      </section>
 
-      </div>
+      {/* MEMBERS SECTION */}
+      <section className="py-16 md:py-24 px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="eyebrow-label block mb-2">
+            Presentación académica
+          </span>
+          <h2 className="text-2xl md:text-4xl font-extrabold text-[#1E2A5E] uppercase tracking-tight">
+            Grupo 5 — Integrantes
+          </h2>
+          <p className="text-sm font-semibold text-[#1E2A5E] mt-2">
+            Docente: Mgtr. Susana Caballero Bardales
+          </p>
+          
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#EEF2FF] border border-[#C7D2FE] px-4 py-1.5 text-xs font-semibold text-[#3730A3] mt-4">
+            <GraduationCap className="h-4 w-4" />
+            Educación Secundaria — Matemática e Informática
+          </div>
+        </div>
+
+        {/* Members Grid (auto-fit style using Tailwind classes) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 justify-center">
+          {integrantes.map((member) => (
+            <div
+              key={member.order}
+              className="academic-card academic-card-hover flex flex-col items-center text-center p-6 bg-white justify-between min-h-[140px]"
+            >
+              <div>
+                {/* Name */}
+                <h3 className="text-[12px] font-semibold text-[#1A1A2E] leading-tight min-h-[32px] flex items-center justify-center">
+                  {member.name}
+                </h3>
+              </div>
+              
+              {/* Order Number */}
+              <span className="text-[10px] text-[#6B7280] font-medium mt-3 border-t border-[#F0F0F4] pt-2 w-full">
+                Orden: {member.order}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 }

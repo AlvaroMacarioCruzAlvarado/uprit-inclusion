@@ -1,30 +1,31 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   PREMIUM DARK MIDNIGHT-NAVY DESIGN SYSTEM
+   PREMIUM LIGHT ACADEMIC DESIGN SYSTEM - GRUPO 5
    Universidad Privada de Trujillo (UPRIT) — Diversidad & Inclusión
    ═══════════════════════════════════════════════════════════════ */
 
 @theme {
   /* Colors */
-  --color-bg-dark: #070913;           /* Dark midnight navy */
-  --color-bg-panel: rgba(13, 17, 30, 0.75); /* Satin glass */
-  --color-bg-card: rgba(22, 28, 48, 0.45);  /* Card fill */
+  --color-brand-indigo: #1E2A5E;       /* Institutional Principal */
+  --color-brand-indigo-mid: #2D3E82;   /* Hover/Variante */
+  --color-brand-green: #2D9B6F;        /* Inclusivity Accent */
+  --color-brand-green-light: #3BB882;  /* Green Hover */
+  --color-brand-amber: #E8A020;        /* Amber Alert / Medium Impact */
+  --color-brand-red: #DC2626;          /* Red Alert / High Impact */
+  --color-brand-purple: #3730A3;       /* Purple Badge / Diagnosis */
   
-  --color-text-primary: #f3f4f6;      /* Off-white */
-  --color-text-secondary: #9ca3af;    /* Slate grey */
-  --color-text-muted: #6b7280;        /* Muted slate */
+  --color-bg-white: #FFFFFF;
+  --color-bg-surface: #F5F6FA;
+  
+  --color-text-primary: #1A1A2E;       /* Dark navy text */
+  --color-text-secondary: #6B7280;     /* Muted grey text */
 
-  --color-brand-indigo: #6366f1;      /* Electric Indigo */
-  --color-brand-teal: #06b6d4;        /* Electric Teal/Turquoise */
-  --color-brand-coral: #f43f5e;       /* Soft Neon Coral */
-  
-  --color-border-glow: rgba(99, 102, 241, 0.18);
-  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border-subtle: rgba(30, 42, 94, 0.08);
 
   /* Typography */
-  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -34,10 +35,11 @@
 @layer base {
   *, *::before, *::after {
     scroll-behavior: smooth;
+    transition: all 0.2s ease;
   }
 
   body {
-    background-color: var(--color-bg-dark);
+    background: linear-gradient(160deg, #F0F4FF 0%, #F8F9FC 50%, #EFF8F4 100%);
     color: var(--color-text-primary);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -49,15 +51,14 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
+    color: var(--color-brand-indigo);
     font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
   }
 
   /* Accessible Focus styles */
   *:focus-visible {
-    outline: 2px solid var(--color-brand-teal);
+    outline: 2px solid var(--color-brand-green);
     outline-offset: 2px;
   }
 
@@ -81,7 +82,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   UTILITIES
+   UTILITIES & PREMIUM CARD CLASSES
    ═══════════════════════════════════════════════════════════════ */
 
 @layer utilities {
@@ -89,65 +90,77 @@
     text-wrap: balance;
   }
 
-  /* Glassmorphism Headers and Cards */
+  /* Sticky Navbar Styling */
   .glass-header {
-    background: rgba(7, 9, 19, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    background: var(--color-brand-indigo);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .glass-card {
-    background: var(--color-bg-panel);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--color-border-subtle);
+  /* Academic Premium Card */
+  .academic-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 0.5px solid var(--color-border-subtle);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(30,42,94,0.08);
+    padding: 28px;
   }
 
-  .glass-card-hover {
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  .academic-card-hover {
+    transition: all 0.2s ease;
   }
   
-  .glass-card-hover:hover {
+  .academic-card-hover:hover {
     transform: translateY(-2px);
-    border-color: var(--color-border-glow);
-    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
-    background: rgba(13, 17, 30, 0.85);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 12px 32px rgba(30,42,94,0.12);
+    border-color: rgba(30, 42, 94, 0.15);
   }
 
-  /* Soft Background Decorative Orbs */
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.18;
-    pointer-events: none;
-    z-index: 0;
+  /* Card Ficha Row */
+  .ficha-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid #F0F0F4;
+    padding: 14px 0;
   }
 
-  .orb-1 {
-    top: 10%;
-    left: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: var(--color-brand-indigo);
+  .ficha-row:last-child {
+    border-bottom: none;
   }
 
-  .orb-2 {
-    bottom: 20%;
-    right: -10%;
-    width: 45vw;
-    height: 45vw;
-    background: var(--color-brand-teal);
+  .ficha-label {
+    font-size: 13px;
+    color: var(--color-text-secondary);
   }
 
-  .orb-3 {
-    top: 50%;
-    left: 40%;
-    width: 35vw;
-    height: 35vw;
-    background: var(--color-brand-coral);
-    opacity: 0.08;
+  .ficha-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  /* Section Eyebrow Labels */
+  .eyebrow-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-brand-green);
+    font-weight: 500;
+  }
+
+  /* Card Title */
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-brand-indigo);
+  }
+
+  /* Background Grid overlay for Hero */
+  .hero-grid-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0);
+    background-size: 24px 24px;
   }
 }
 
@@ -158,7 +171,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -167,10 +180,9 @@
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animation-delay-100 { animation-delay: 100ms; }
 .animation-delay-200 { animation-delay: 200ms; }
 .animation-delay-300 { animation-delay: 300ms; }
-.animation-delay-400 { animation-delay: 400ms; }
