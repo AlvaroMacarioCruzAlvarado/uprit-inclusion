@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM DARK MIDNIGHT-NAVY DESIGN SYSTEM
+   Universidad Privada de Trujillo (UPRIT) — Diversidad & Inclusión
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Colors */
+  --color-bg-dark: #070913;           /* Dark midnight navy */
+  --color-bg-panel: rgba(13, 17, 30, 0.75); /* Satin glass */
+  --color-bg-card: rgba(22, 28, 48, 0.45);  /* Card fill */
+  
+  --color-text-primary: #f3f4f6;      /* Off-white */
+  --color-text-secondary: #9ca3af;    /* Slate grey */
+  --color-text-muted: #6b7280;        /* Muted slate */
+
+  --color-brand-indigo: #6366f1;      /* Electric Indigo */
+  --color-brand-teal: #06b6d4;        /* Electric Teal/Turquoise */
+  --color-brand-coral: #f43f5e;       /* Soft Neon Coral */
+  
+  --color-border-glow: rgba(99, 102, 241, 0.18);
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+
+  /* Typography */
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE LAYER
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer base {
+  *, *::before, *::after {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
+  /* Accessible Focus styles */
+  *:focus-visible {
+    outline: 2px solid var(--color-brand-teal);
+    outline-offset: 2px;
+  }
+
+  /* Skip link style */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 9999;
+    padding: 12px 24px;
+    background: var(--color-brand-indigo);
+    color: white;
+    font-weight: 600;
+    border-radius: 0 0 12px 12px;
+    transition: top 0.2s ease;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Glassmorphism Headers and Cards */
+  .glass-header {
+    background: rgba(7, 9, 19, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-card {
+    background: var(--color-bg-panel);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .glass-card-hover:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-border-glow);
+    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+    background: rgba(13, 17, 30, 0.85);
+  }
+
+  /* Soft Background Decorative Orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .orb-1 {
+    top: 10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: var(--color-brand-indigo);
+  }
+
+  .orb-2 {
+    bottom: 20%;
+    right: -10%;
+    width: 45vw;
+    height: 45vw;
+    background: var(--color-brand-teal);
+  }
+
+  .orb-3 {
+    top: 50%;
+    left: 40%;
+    width: 35vw;
+    height: 35vw;
+    background: var(--color-brand-coral);
+    opacity: 0.08;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TRANSITIONS & ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Optimization -->
+    <title>Portafolio Académico Digital - Evidencias de Aprendizaje</title>
+    <meta name="description" content="Portafolio académico de la asignatura Evidencias de Aprendizaje en Matemática e Informática de la Universidad Privada de Trujillo. Grupo 3. Presenta sesiones de aprendizaje, simuladores de evaluación, conclusiones y recursos descargables.">
+    <meta name="author" content="Grupo 3 - Matemática e Informática">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- ==========================================
+             LEFT SIDEBAR NAVIGATION
+             ========================================== -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span class="logo-text">EDP Portal</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <!-- Dashboard Link -->
+                <a href="#inicio" class="nav-item active" data-target="inicio">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="9"/>
+                        <rect x="14" y="3" width="7" height="5"/>
+                        <rect x="14" y="12" width="7" height="9"/>
+                        <rect x="3" y="16" width="7" height="5"/>
+                    </svg>
+                    DASHBOARD
+                </a>
+                
+                <!-- Sesiones Group -->
+                <div class="nav-group" id="sesionesGroup">
+                    <a href="#sesiones" class="nav-item" data-target="sesiones" id="sesionesTrigger">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                        MÓDULOS
+                        <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </a>
+                    
+                    <div class="nested-nav">
+                        <a href="#sesion1" class="nested-item" data-target="sesion1">Sesión I</a>
+                        <a href="#sesion2" class="nested-item" data-target="sesion2">Sesión II</a>
+                        <a href="#sesion3" class="nested-item" data-target="sesion3">Sesión III</a>
+                        <a href="#sesion4" class="nested-item" data-target="sesion4">Sesión IV</a>
+                        <a href="#sesion5" class="nested-item" data-target="sesion5">Sesión V</a>
+                        <a href="#sesion6" class="nested-item" data-target="sesion6">Sesión VI</a>
+                        <a href="#sesion7" class="nested-item" data-target="sesion7">Sesión VII</a>
+                    </div>
+                </div>
+                
+                <!-- Conclusiones Link -->
+                <a href="#conclusiones" class="nav-item" data-target="conclusiones">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    CONCLUSIONES
+                </a>
+                
+                <!-- Descargas Link -->
+                <a href="#descargas" class="nav-item" data-target="descargas">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    DESCARGAS
+                </a>
+            </nav>
+        </aside>
+        
+        <!-- ==========================================
+             MAIN CONTENT WINDOW AREA
+             ========================================== -->
+        <main class="app-main">
+            
+            <!-- Header bar with autocomplete search -->
+            <header class="main-header">
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                
+                <div class="search-wrapper">
+                    <svg class="search-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <input type="text" id="globalSearchInput" class="search-input-field" placeholder="Buscar temas (ej. Wilson, cotejo, rúbrica)..." autocomplete="off">
+                    
+                    <!-- Autocomplete dropdown -->
+                    <div class="autocomplete-dropdown" id="searchAutocompletePanel"></div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="quick-btn-portafolio" id="quickDownloadBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Descargar Portafolio
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Content Wrapper -->
+            <div class="content-wrapper">
+                
+                <!-- ==========================================
+                     VIEW: INICIO (DASHBOARD)
+                     ========================================== -->
+                <div id="inicio" class="page-view active">
+                    
+                    <!-- Dashboard welcome widgets -->
+                    <div class="dashboard-hero">
+                        <div class="welcome-widget">
+                            <span class="welcome-label">Universidad Privada de Trujillo</span>
+                            <h1 class="welcome-title">Evidencias de Aprendizaje</h1>
+                            <p class="welcome-subtitle">
+                                Portafolio Digital de Matemática e Informática • Grupo 03 • Espacio académico dedicado al desarrollo de competencias evaluativas y didácticas de nivel superior.
+                            </p>
+                        </div>
+                        
+                        <div class="clock-widget">
+                            <div class="widget-time" id="bannerClock">00:00:00</div>
+                            <div class="widget-date" id="bannerDate">Cargando...</div>
+                            <div class="widget-ticker">
+                                GRUPO 3 • EVIDENCIAS DE APRENDIZAJE • 2026
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Docente Profile card -->
+                    <section class="glass-card">
+                        <div class="profile-row">
+                            <div class="avatar-container">
+                                <div class="avatar-frame">
+                                    <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCLFTT7qeAS74qaomt7z2CZ9DP2-UQCgJc9t0cVbN17XGInJ4TiWJgj0izLDcc4hDKtczh25_JrmsJCvk3FOa4wxUv2m4GaxoRHTftr3IeKEYhfbMZB3iuIUXGmBKwW4MUCRm4bppgr4JxlrOsGQIlTHcNIqLvT373OotgVyHGwrCwuJfZX1WPcf4k2uijJCSZoBZFd9wLvsE2WS2eVHI76QdqfqigdFEKTmFs=w1280" alt="Dra. Karina Maribel Aroni Salcedo" class="avatar-img">
+                                </div>
+                            </div>
+                            <div class="bio-info">
+                                <span class="bio-title-label">Asesora Académica</span>
+                                <h3 class="bio-name">Dra. Karina Maribel Aroni Salcedo</h3>
+                                <p class="bio-text">
+                                    Docente e investigadora de gran trayectoria en la ciudad de Trujillo. Se especializa en la administración de la educación secundaria, el desarrollo de competencias de lenguaje y didáctica de investigación bajo entornos y plataformas virtuales.
+                                </p>
+                                <div class="academic-pills">
+                                    <span class="academic-pill">Licenciatura en Educación: <strong>UNT</strong></span>
+                                    <span class="academic-pill">Maestría en Administración: <strong>2016</strong></span>
+                                    <span class="academic-pill">Doctorado en Educación: <strong>UCV 2026</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Group Members Grid Deck -->
+                    <section class="team-section">
+                        <h2 class="card-title">Equipo Integrante</h2>
+                        <div class="members-deck" id="membersDeck">
+                            <!-- Rendered dynamically by app.js -->
+                        </div>
+                    </section>
+                    
+                    <!-- Introduction -->
+                    <section class="glass-card" style="margin-top: 32px;">
+                        <h2 class="card-title">Introducción al Portafolio</h2>
+                        <div class="intro-text">
+                            <p>
+                                La evaluación constituye uno de los procesos más importantes dentro de la práctica educativa, ya que permite recoger, analizar e interpretar evidencias de aprendizaje con el propósito de mejorar la enseñanza y favorecer el desarrollo integral de los estudiantes. En el contexto de la educación basada en competencias, la evaluación deja de ser un mecanismo centrado exclusivamente en la calificación para convertirse en una herramienta formativa que orienta la toma de decisiones pedagógicas y promueve aprendizajes significativos.
+                            </p>
+                            <p>
+                                El presente portafolio reúne un conjunto de trabajos y reflexiones desarrollados en torno a los principales fundamentos teóricos y prácticos de la evaluación educativa. En primer lugar, se aborda la distinción conceptual entre evaluación, medición y calificación, así como el análisis de las funciones formativa y sumativa de la evaluación, aspectos fundamentales para comprender su papel dentro del proceso educativo.
+                            </p>
+                        </div>
+                    </section>
+                    
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: SESIÓN I
+                     ========================================== -->
+                <div id="sesion1" class="page-view">
+                    <div class="session-card">
+                        <span class="sess-num">Módulo I</span>
+                        <h2 class="sess-title">Fundamentos de la Evaluación Educativa</h2>
+                        
+                        <p class="sess-text">
+                            En esta primera sesión se abordan las bases conceptuales que definen el proceso de evaluación, haciendo hincapié en la necesidad de distinguir adecuadamente los términos <strong>Evaluación</strong>, <strong>Medición</strong> y <strong>Calificación</strong>, los cuales suelen usarse de forma indistinta en el entorno escolar clásico, pero representan niveles de análisis y decisiones pedagógicas muy diferentes.
+                        </p>
+                        
+                        <h3 class="sess-subtitle">Comparación de Conceptos Clave</h3>
+                        <div class="table-container">
+                            <table class="slate-table">
+                                <thead>
+                                    <tr>
+                                        <th>Concepto</th>
+                                        <th>Definición</th>
+                                        <th>Objetivo Principal</th>
+                                        <th>Ejemplo en Matemática</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Medición</strong></td>
+                                        <td>Proceso sistemático de asignar un valor numérico o cuantitativo a un atributo de aprendizaje.</td>
+                                        <td>Obtener datos precisos y objetivos sin emitir juicios de valor.</td>
+                                        <td>Un examen de 20 preguntas con 15 respuestas correctas (Nota: 15/20).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Calificación</strong></td>
+                                        <td>Asignación de un código oficial (número o letra) que representa el nivel alcanzado en un período.</td>
+                                        <td>Certificar administrativamente el rendimiento ante el sistema educativo.</td>
+                                        <td>Asignar la nota aprobatoria "A" o el puntaje acumulado de 14.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Evaluación</strong></td>
+                                        <td>Proceso valorativo e integral que analiza evidencias cuantitativas y cualitativas para tomar decisiones.</td>
+                                        <td>Comprender dificultades, reorientar la enseñanza y retroalimentar al alumno.</td>
+                                        <td>Analizar el método de resolución de ecuaciones del alumno y sugerir mejoras.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="sess-callout">
+                            "La medición aporta datos; la calificación resume rendimientos; pero solo la evaluación transforma la práctica y mejora el proceso formativo."
+                        </div>
+                        
+                        <h3 class="sess-subtitle">Ejes de Aprendizaje Desarrollados</h3>
+                        <ul class="sess-list">
+                            <li><strong>Claridad Conceptual:</strong> Evita la reducción del acto evaluativo a un mero registro de notas cuantitativas.</li>
+                            <li><strong>Dimensión Ética:</strong> Reconoce el impacto psicológico y pedagógico que posee el juicio evaluativo sobre la motivación del estudiante.</li>
+                            <li><strong>Alineación Técnica:</strong> Establece las pautas para que los datos recolectados sirvan como insumo directo para la mejora didáctica.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: SESIÓN II
+                     ========================================== -->
+                <div id="sesion2" class="page-view">
+                    <div class="session-card">
+                        <span class="sess-num">Módulo II</span>
+                        <h2 class="sess-title">Funciones de la Evaluación: Formativa y Sumativa</h2>
+                        
+                        <p class="sess-text">
+                            La evaluación adquiere sentido a través de la intención didáctica con la que se diseña y aplica. En esta sesión estudiamos en profundidad las dos funciones primordiales del acto evaluativo: la <strong>Función Formativa</strong> (diseñada para guiar y mejorar el aprendizaje en proceso) y la <strong>Función Sumativa</strong> (orientada a certificar y valorar los logros consolidados).
+                        </p>
+                        
+                        <h3 class="sess-subtitle">Matriz de Contraste Funcional</h3>
+                        <div class="table-container">
+                            <table class="slate-table">
+                                <thead>
+                                    <tr>
+                                        <th>Característica</th>
+                                        <th>Evaluación Formativa</th>
+                                        <th>Evaluación Sumativa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Propósito</strong></td>
+                                        <td>Regular el aprendizaje en curso y retroalimentar oportunamente.</td>
+                                        <td>Valorar y certificar los resultados al finalizar una unidad.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Timing / Momento</strong></td>
+                                        <td>Procesual, continuo y sistemático a lo largo del período.</td>
+                                        <td>Puntual, al final de un ciclo, trimestre o año académico.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Instrumentos comunes</strong></td>
+                                        <td>Cuadernos de campo, rúbricas de proceso, listas de cotejo, autoevaluación.</td>
+                                        <td>Exámenes finales, proyectos globales, portafolios integradores calificados.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Destinatario principal</strong></td>
+                                        <td>El alumno (para ajustar estrategias) y el docente (didáctica).</td>
+                                        <td>El sistema administrativo, directivos, padres y expediente.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="sess-callout">
+                            "Cuando el cocinero prueba la sopa antes de servirla, es evaluación formativa; cuando los comensales la prueban, es evaluación sumativa."
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: SESIÓN III
+                     ========================================== -->
+                <div id="sesion3" class="page-view">
+                    <div class="session-card">
+                        <span class="sess-num">Módulo III</span>
+                        <h2 class="sess-title">Enfoques de Evaluación Contemporánea y el CNEB</h2>
+                        
+                        <p class="sess-text">
+                            La modernización curricular exige un cambio metodológico drástico. En esta sesión analizamos la transición hacia el <strong>Enfoque por Competencias</strong> promovido por el Currículo Nacional de la Educación Básica (CNEB), fundamentado en la <strong>Evaluación Auténtica</strong> y el <strong>Alineamiento Constructivo</strong> de Biggs.
+                        </p>
+                        
+                        <h3 class="sess-subtitle">Los Pilares del Enfoque Moderno</h3>
+                        <ul class="sess-list">
+                            <li><strong>Evaluación Auténtica:</strong> Propone evaluar a los estudiantes a través de tareas significativas y del mundo real, en lugar de pruebas escritas artificiales y memorísticas. Exige que el alumno construya sus propias respuestas y resuelva problemas reales de su contexto.</li>
+                            <li><strong>Enfoque por Competencias (CNEB):</strong> Define la competencia como la facultad de combinar un conjunto de capacidades para lograr un propósito en una situación específica, actuando de manera ética.</li>
+                            <li><strong>Alineamiento Constructivo:</strong> Principio propuesto por John Biggs que exige una coherencia absoluta entre tres componentes didácticos esenciales: los Resultados de Aprendizaje esperados, las Actividades de Enseñanza y Aprendizaje planteadas, y las Tareas de Evaluación seleccionadas.</li>
+                        </ul>
+                        
+                        <h3 class="sess-subtitle">Coherencia Didáctica (Ejemplo Práctico)</h3>
+                        <div class="table-container">
+                            <table class="slate-table">
+                                <thead>
+                                    <tr>
+                                        <th>Componente de Coherencia (Biggs)</th>
+                                        <th>Estado Desalineado (Tradicional)</th>
+                                        <th>Estado Alineado (CNEB)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Resultados de Aprendizaje</strong></td>
+                                        <td>"Aprender fórmulas de volúmenes geométricos."</td>
+                                        <td>"Resolver problemas de modelado geométrico en arquitectura local."</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Actividades Didácticas</strong></td>
+                                        <td>Copia de fórmulas en la pizarra y ejercicios repetitivos del libro.</td>
+                                        <td>Construcción de maquetas tridimensionales y cálculo de espacios reales.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tarea de Evaluación</strong></td>
+                                        <td>Examen escrito memorístico sobre fórmulas teóricas.</td>
+                                        <td>Sustentación de la maqueta y justificación matemática de los volúmenes.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: SESIÓN IV
+                     ========================================== -->
+                <div id="sesion4" class="page-view">
+                    <div class="session-card">
+                        <span class="sess-num">Módulo IV</span>
+                        <h2 class="sess-title">Planificación de la Evaluación: Criterios e Indicadores</h2>
+                        
+                        <p class="sess-text">
+                            Planificar la evaluación consiste en trazar el camino claro y los referentes técnicos para juzgar el aprendizaje sin caer en la improvisación. Esta sesión se centra en la definición metodológica de los <strong>Criterios de Evaluación</strong> y los <strong>Indicadores de Desempeño</strong>, organizados sistemáticamente en una <strong>Matriz de Planificación</strong>.
+                        </p>
+                        
+                        <h3 class="sess-subtitle">Ejemplo de Matriz de Planificación (Matemática)</h3>
+                        <div class="table-container">
+                            <table class="slate-table">
+                                <thead>
+                                    <tr>
+                                        <th>Competencia (CNEB)</th>
+                                        <th>Capacidades</th>
+                                        <th>Criterios de Evaluación</th>
+                                        <th>Evidencia Requerida</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Resuelve problemas de regularidad, equivalencia y cambio.</strong></td>
+                                        <td>• Traduce datos y condiciones a expresiones algebraicas.<br>• Comunica su comprensión sobre relaciones algebraicas.</td>
+                                        <td>• Representa de forma gráfica y simbólica el comportamiento de una función lineal.<br>• Explica el significado del intercepto y la pendiente en problemas cotidianos.</td>
+                                        <td>Informe escrito que modela el consumo de agua domiciliario utilizando funciones lineales y afines.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Resuelve problemas de gestión de datos e incertidumbre.</strong></td>
+                                        <td>• Representa datos con gráficos y medidas estadísticas.<br>• Usa estrategias para recopilar y procesar datos.</td>
+                                        <td>• Selecciona y organiza datos estadísticos en tablas de frecuencias.<br>• Calcula e interpreta de forma correcta la media, mediana y moda del conjunto.</td>
+                                        <td>Infografía interactiva que analiza los hábitos de alimentación saludable de la comunidad escolar.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: SESIÓN V
+                     ========================================== -->
+                <div id="sesion5" class="page-view">
+                    <div class="session-card">
+                        <span class="sess-num">Módulo V</span>
+                        <h2 class="sess-title">Diseño de Instrumentos de Evaluación: Cotejo y Estimación</h2>
+                        
+                        <p class="sess-text">
+                            La recolección sistemática de evidencias requiere herramientas que garanticen objetividad. En esta sesión diseñamos y aplicamos dos de los instrumentos más utilizados en el aula por su viabilidad y enfoque formativo: las <strong>Listas de Cotejo</strong> y las <strong>Escalas de Estimación o Valoración</strong>.
+                        </p>
+                        
+                        <!-- Interactive Evaluation Form Simulator -->
+                        <div class="eval-simulator">
+                            <div class="sim-header">
+                                <h4 class="sim-title">Simulador Interactivo de Evaluación de Competencias</h4>
+                                <span class="sim-badge">Matemática</span>
+                            </div>
+                            
+                            <p class="cloud-file-desc" style="margin-bottom: 16px;">
+                                Interactúa con los criterios del simulador. Selecciona el nivel de desempeño obtenido por el alumno en cada dimensión para calcular de forma inmediata su calificación promedio aproximada.
+                            </p>
+                            
+                            <div class="sim-row">
+                                <div class="sim-label">
+                                    <strong>Dimensión 1: Modelado Matemático</strong><br>
+                                    <span style="font-size:0.75rem; color:var(--color-muted);">Traducción de condiciones reales a expresiones algebraicas.</span>
+                                </div>
+                                <select class="sim-select" id="scoreD1">
+                                    <option value="1">Inicio (C)</option>
+                                    <option value="2">Proceso (B)</option>
+                                    <option value="3" selected>Logrado (A)</option>
+                                    <option value="4">Destacado (AD)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="sim-row">
+                                <div class="sim-label">
+                                    <strong>Dimensión 2: Estrategias de Resolución</strong><br>
+                                    <span style="font-size:0.75rem; color:var(--color-muted);">Uso de algoritmos y recursos analíticos eficientes.</span>
+                                </div>
+                                <select class="sim-select" id="scoreD2">
+                                    <option value="1">Inicio (C)</option>
+                                    <option value="2" selected>Proceso (B)</option>
+                                    <option value="3">Logrado (A)</option>
+                                    <option value="4">Destacado (AD)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="sim-row">
+                                <div class="sim-label">
+                                    <strong>Dimensión 3: Explicación de Conceptos</strong><br>
+                                    <span style="font-size:0.75rem; color:var(--color-muted);">Argumentación de resultados y lectura de gráficos.</span>
+                                </div>
+                                <select class="sim-select" id="scoreD3">
+                                    <option value="1">Inicio (C)</option>
+                                    <option value="2">Proceso (B)</option>
+                                    <option value="3" selected>Logrado (A)</option>
+                                    <option value="4">Destacado (AD)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="sim-score-box">
+                                <span style="font-size:0.85rem; font-weight:600; color:var(--color-secondary);">Nivel de Logro Final Calculado:</span>
+                                <div class="score-value" id="finalLogroRating">Logrado (A)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: SESIÓN VI
+                     ========================================== -->
+                <div id="sesion6" class="page-view">
+                    <div class="session-card">
+                        <span class="sess-num">Módulo VI</span>
+                        <h2 class="sess-title">Retroalimentación Formativa y la Escalera de Wilson</h2>
+                        
+                        <p class="sess-text">
+                            La retroalimentación es el corazón de la evaluación formativa. En esta sesión analizamos cómo cerrar la brecha entre el nivel actual del estudiante y el nivel de logro esperado, implementando la <strong>Escalera de Retroalimentación de Daniel Wilson</strong>.
+                        </p>
+                        
+                        <h3 class="sess-subtitle">Escalera Interactiva de Daniel Wilson</h3>
+                        <p class="cloud-file-desc" style="margin-bottom: 16px;">
+                            Haz clic en cada peldaño de la escalera para desplegar su significado metodológico y los ejemplos conversacionales recomendados.
+                        </p>
+                        
+                        <!-- Interactive Wilson's Stepper -->
+                        <div class="ladder-stepper" id="wilsonStepper">
+                            
+                            <!-- Step 1 -->
+                            <div class="ladder-step active" data-step="0">
+                                <div class="ladder-step-trigger">
+                                    <div class="step-title-wrapper">
+                                        <div class="step-num-badge">1</div>
+                                        <span class="step-title">Clarificar</span>
+                                    </div>
+                                    <svg class="ladder-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"/>
+                                    </svg>
+                                </div>
+                                <div class="ladder-step-content">
+                                    <div class="ladder-step-inner">
+                                        Hacer preguntas para comprender el pensamiento del estudiante y llenar vacíos o malentendidos iniciales antes de evaluar.
+                                        <blockquote>"¿Podrías explicarme cómo obtuviste esta pendiente en el gráfico de consumo?"</blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 2 -->
+                            <div class="ladder-step" data-step="1">
+                                <div class="ladder-step-trigger">
+                                    <div class="step-title-wrapper">
+                                        <div class="step-num-badge">2</div>
+                                        <span class="step-title">Valorar</span>
+                                    </div>
+                                    <svg class="ladder-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"/>
+                                    </svg>
+                                </div>
+                                <div class="ladder-step-content">
+                                    <div class="ladder-step-inner">
+                                        Destacar explícitamente y con honestidad los puntos fuertes, la lógica correcta o los aciertos creativos del trabajo presentado.
+                                        <blockquote>"Valoro mucho que hayas tabulado los datos ordenadamente antes de plantear la ecuación."</blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 3 -->
+                            <div class="ladder-step" data-step="2">
+                                <div class="ladder-step-trigger">
+                                    <div class="step-title-wrapper">
+                                        <div class="step-num-badge">3</div>
+                                        <span class="step-title">Expresar Inquietudes</span>
+                                    </div>
+                                    <svg class="ladder-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"/>
+                                    </svg>
+                                </div>
+                                <div class="ladder-step-content">
+                                    <div class="ladder-step-inner">
+                                        Manifestar desacuerdos, preocupaciones o dudas no resueltas de manera respetuosa e investigativa.
+                                        <blockquote>"Me preocupa que al restar este término no se haya considerado la regla de signos."</blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 4 -->
+                            <div class="ladder-step" data-step="3">
+                                <div class="ladder-step-trigger">
+                                    <div class="step-title-wrapper">
+                                        <div class="step-num-badge">4</div>
+                                        <span class="step-title">Hacer Sugerencias</span>
+                                    </div>
+                                    <svg class="ladder-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"/>
+                                    </svg>
+                                </div>
+                                <div class="ladder-step-content">
+                                    <div class="ladder-step-inner">
+                                        Proporcionar recomendaciones constructivas y accionables para ayudar al estudiante a dar el siguiente paso de aprendizaje de forma autónoma.
+                                        <blockquote>"Te sugiero revisar esta propiedad algebraica y resolver de nuevo la resta."</blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: SESIÓN VII
+                     ========================================== -->
+                <div id="sesion7" class="page-view">
+                    <div class="session-card">
+                        <span class="sess-num">Módulo VII</span>
+                        <h2 class="sess-title">Análisis de Datos Educativos e Interpretación de Resultados</h2>
+                        
+                        <p class="sess-text">
+                            La toma de decisiones didácticas basada en evidencias tangibles es el último eslabón de la evaluación. En esta sesión estudiamos cómo tabular, analizar cualitativamente e interpretar las calificaciones y rúbricas grupales para planificar actividades de reforzamiento escolar, reajustes en la mediación docente y procesos de mejora institucional.
+                        </p>
+                        
+                        <h3 class="sess-subtitle">Fases del Análisis de Evidencias</h3>
+                        <ul class="sess-list">
+                            <li><strong>Recopilación de Evidencias:</strong> Agrupar registros de rúbricas y listas de cotejo de una muestra significativa.</li>
+                            <li><strong>Identificación de Patrones:</strong> Detectar si los errores son individuales (que requieren tutorías específicas) o colectivos (que requieren cambios en la metodología del docente).</li>
+                            <li><strong>Diseño de la Acción Correctiva:</strong> Ajuste de ritmos, inclusión de simuladores, Geogebra o actividades lúdicas.</li>
+                            <li><strong>Monitoreo y Reajuste:</strong> Evaluar de nuevo el desempeño para verificar si el plan dio resultados.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: CONCLUSIONES
+                     ========================================== -->
+                <div id="conclusiones" class="page-view">
+                    <div class="conclusiones-layout">
+                        
+                        <div class="glass-card">
+                            <h2 class="card-title">Conclusión General</h2>
+                            <p class="sess-text">
+                                El estudio de los fundamentos, enfoques y procesos de la evaluación educativa permite comprender que la evaluación trasciende la simple asignación de calificaciones para convertirse en una herramienta esencial de mejora del aprendizaje y de la práctica docente. La distinción entre evaluación, medición y calificación evidencia que la evaluación constituye un proceso integral orientado a recopilar, interpretar y utilizar evidencias para emitir juicios fundamentados y tomar decisiones pedagógicas pertinentes.
+                            </p>
+                            <p class="sess-text">
+                                Asimismo, los enfoques contemporáneos, como la evaluación auténtica, la evaluación por competencias y el alineamiento constructivo, promueven una visión centrada en el desempeño del estudiante en situaciones significativas y contextualizadas. Estos enfoques encuentran sustento en el Currículo Nacional de la Educación Básica (CNEB), que prioriza el desarrollo de competencias y la valoración de evidencias auténticas de aprendizaje.
+                            </p>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h2 class="card-title">Análisis Crítico</h2>
+                            <p class="sess-text">
+                                El análisis desarrollado evidencia que, a pesar de los avances teóricos y normativos en materia de evaluación educativa, persisten desafíos significativos en la práctica pedagógica. En muchos contextos escolares todavía predominan enfoques tradicionales centrados en la memorización de contenidos, la aplicación de pruebas estandarizadas y la asignación de notas como principal finalidad de la evaluación.
+                            </p>
+                            <p class="sess-text">
+                                Aunque los marcos curriculares actuales promueven la evaluación formativa y el desarrollo de competencias, su implementación efectiva requiere cambios profundos en las concepciones docentes sobre la enseñanza y el aprendizaje.
+                            </p>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h2 class="card-title">Prospectiva</h2>
+                            <p class="sess-text">
+                                Las tendencias educativas actuales indican que la evaluación continuará evolucionando hacia modelos cada vez más centrados en el estudiante, en el desarrollo de competencias y en la mejora continua de los aprendizajes.
+                            </p>
+                            <p class="sess-text">
+                                Se prevé una mayor incorporación de tecnologías digitales que permitan recopilar, analizar e interpretar datos en tiempo real, facilitando la personalización de la enseñanza y el seguimiento individualizado del progreso de los estudiantes mediante analíticas de aprendizaje e inteligencia artificial.
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: DESCARGAS
+                     ========================================== -->
+                <div id="descargas" class="page-view">
+                    <section class="glass-card">
+                        <h2 class="card-title">Archivos de Evaluación</h2>
+                        <p class="sess-text" style="margin-bottom: 24px;">
+                            Descarga los materiales consolidados, csv de cotejo y guías teóricas del portafolio en formatos ligeros generados en tiempo real.
+                        </p>
+                        
+                        <div class="cloud-drive-layout">
+                            <!-- Table Column Headers (Hidden on Mobile) -->
+                            <div class="cloud-drive-header">
+                                <span>Nombre de Archivo</span>
+                                <span>Tipo</span>
+                                <span>Tamaño</span>
+                                <span>Acción</span>
+                            </div>
+                            
+                            <!-- File 1 -->
+                            <div class="cloud-file-row">
+                                <div class="cloud-file-name-cell">
+                                    <div class="cloud-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                            <line x1="16" y1="13" x2="8" y2="13"/>
+                                            <line x1="16" y1="17" x2="8" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="cloud-file-name">Guía de Fundamentos Conceptuales</div>
+                                        <div class="cloud-file-desc">Resumen sobre Evaluación, Medición y Calificación.</div>
+                                    </div>
+                                </div>
+                                <div><span class="cloud-format-badge">TXT</span></div>
+                                <div class="cloud-size-cell">3.4 KB</div>
+                                <div>
+                                    <button class="btn-cloud-download" data-file="guia_fundamentos">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                            <polyline points="7 10 12 15 17 10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                        Descargar
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- File 2 -->
+                            <div class="cloud-file-row">
+                                <div class="cloud-file-name-cell">
+                                    <div class="cloud-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                            <line x1="16" y1="13" x2="8" y2="13"/>
+                                            <line x1="16" y1="17" x2="8" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="cloud-file-name">Evaluación Formativa vs Sumativa</div>
+                                        <div class="cloud-file-desc">Diferencias clave de las funciones evaluativas.</div>
+                                    </div>
+                                </div>
+                                <div><span class="cloud-format-badge">TXT</span></div>
+                                <div class="cloud-size-cell">2.9 KB</div>
+                                <div>
+                                    <button class="btn-cloud-download" data-file="funciones_evaluacion">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                            <polyline points="7 10 12 15 17 10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                        Descargar
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- File 3 -->
+                            <div class="cloud-file-row">
+                                <div class="cloud-file-name-cell">
+                                    <div class="cloud-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                            <line x1="16" y1="13" x2="8" y2="13"/>
+                                            <line x1="16" y1="17" x2="8" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="cloud-file-name">Criterios de Evaluación CNEB</div>
+                                        <div class="cloud-file-desc">Guía metodológica para formulación en Matemática.</div>
+                                    </div>
+                                </div>
+                                <div><span class="cloud-format-badge">TXT</span></div>
+                                <div class="cloud-size-cell">4.1 KB</div>
+                                <div>
+                                    <button class="btn-cloud-download" data-file="criterios_evaluacion">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                            <polyline points="7 10 12 15 17 10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                        Descargar
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- File 4 -->
+                            <div class="cloud-file-row">
+                                <div class="cloud-file-name-cell">
+                                    <div class="cloud-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                            <line x1="16" y1="13" x2="8" y2="13"/>
+                                            <line x1="16" y1="17" x2="8" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="cloud-file-name">Lista de Cotejo para Resolución</div>
+                                        <div class="cloud-file-desc">Plantilla editable en formato de tabla (CSV).</div>
+                                    </div>
+                                </div>
+                                <div><span class="cloud-format-badge excel">CSV</span></div>
+                                <div class="cloud-size-cell">3.8 KB</div>
+                                <div>
+                                    <button class="btn-cloud-download" data-file="lista_cotejo">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                            <polyline points="7 10 12 15 17 10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                        Descargar
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- File 5 -->
+                            <div class="cloud-file-row">
+                                <div class="cloud-file-name-cell">
+                                    <div class="cloud-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                            <line x1="16" y1="13" x2="8" y2="13"/>
+                                            <line x1="16" y1="17" x2="8" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="cloud-file-name">Guía de Retroalimentación de Wilson</div>
+                                        <div class="cloud-file-desc">Peldaños y ejemplos conversacionales del docente.</div>
+                                    </div>
+                                </div>
+                                <div><span class="cloud-format-badge">TXT</span></div>
+                                <div class="cloud-size-cell">3.2 KB</div>
+                                <div>
+                                    <button class="btn-cloud-download" data-file="guia_wilson">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                            <polyline points="7 10 12 15 17 10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                        Descargar
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- File 6 -->
+                            <div class="cloud-file-row">
+                                <div class="cloud-file-name-cell">
+                                    <div class="cloud-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                            <line x1="16" y1="13" x2="8" y2="13"/>
+                                            <line x1="16" y1="17" x2="8" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="cloud-file-name">Paquete Completo de Portafolio</div>
+                                        <div class="cloud-file-desc">Recopilación de todos los resúmenes del Grupo 3.</div>
+                                    </div>
+                                </div>
+                                <div><span class="cloud-format-badge zip">TXT</span></div>
+                                <div class="cloud-size-cell">20.4 KB</div>
+                                <div>
+                                    <button class="btn-cloud-download" data-file="portafolio_completo">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                            <polyline points="7 10 12 15 17 10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                        Descargar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- ==========================================
+                     VIEW: BUSCADOR
+                     ========================================== -->
+                <div id="buscador" class="page-view">
+                    <div class="glass-card">
+                        <h2 class="card-title">Resultados de Búsqueda</h2>
+                        <div class="search-results-section">
+                            <div class="search-results-header" id="searchResultsHeader">
+                                Escribe en el buscador superior para ver resultados.
+                            </div>
+                            <div class="search-results-list" id="searchResultsList"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Global Footer -->
+            <footer class="main-footer">
+                © 2026 Universidad Privada de Trujillo • Evidencias de Aprendizaje • Desarrollado por <span>Grupo 3</span>.
+            </footer>
+            
+        </main>
+        
+        <!-- ==========================================
+             SLIDE-IN MEMBER DETAILS DRAWER
+             ========================================== -->
+        <div class="profile-drawer-overlay" id="profileDrawerOverlay">
+            <div class="profile-drawer">
+                <div class="drawer-header">
+                    <h3 class="logo-text" id="drawerTitleName">Detalles del Perfil</h3>
+                    <button class="btn-close-drawer" id="closeDrawerBtn" aria-label="Cerrar detalles">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="drawer-body">
+                    <div class="drawer-photo-frame" id="drawerPhotoFrame">
+                        <img src="" alt="" class="drawer-photo" id="drawerPhoto">
+                    </div>
+                    <div class="drawer-content-info" id="drawerContentInfo">
+                        <!-- Filled dynamically by app.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Main JS logic -->
+    <script src="app.js"></script>
+</body>
+</html>
