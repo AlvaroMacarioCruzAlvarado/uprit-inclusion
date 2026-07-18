@@ -31,7 +31,13 @@ import {
   ChevronRight,
   Copy,
   Save,
-  Check
+  Check,
+  FolderOpen,
+  MonitorDot,
+  Key,
+  UserCog,
+  ArchiveRestore,
+  BookMarked
 } from "lucide-react";
 
 // Types definition
@@ -1909,17 +1915,18 @@ FOR EACH ROW EXECUTE FUNCTION registrar_auditoria();
             {/* TAB 5: SCRIPTS SQL */}
             {/* ==================================================== */}
             {activeTab === "sql" && (
-              <div className="space-y-6 text-left">
+              <div className="space-y-8 text-left">
+
+                {/* --- Script Block --- */}
                 <div className="academic-card bg-white">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                     <div>
                       <span className="eyebrow-label block mb-2">Código Fuente Base</span>
                       <h2 className="card-title">Scripts SQL de Inicialización Corporativa</h2>
                       <p className="text-xs text-[#6B7280] mt-1">
-                        Código estructurado DDL (Tablas) y DCL (Control de Accesos/Usuarios) listo para implementar en PostgreSQL o MySQL.
+                        Código DDL (Tablas) y DCL (Control de Accesos/Usuarios) listo para ejecutar en <strong>PostgreSQL 15+</strong> con pgAdmin 4.
                       </p>
                     </div>
-                    
                     <div className="flex gap-2">
                       <button
                         onClick={handleCopySQL}
@@ -1937,13 +1944,314 @@ FOR EACH ROW EXECUTE FUNCTION registrar_auditoria();
                       </button>
                     </div>
                   </div>
-
                   <div className="bg-[#1E2A3E] text-slate-100 rounded-xl p-5 font-mono text-[11px] overflow-x-auto max-h-[500px] leading-relaxed border border-slate-800">
-                    <pre className="text-left whitespace-pre">
-                      {sqlScriptContent}
-                    </pre>
+                    <pre className="text-left whitespace-pre">{sqlScriptContent}</pre>
                   </div>
                 </div>
+
+                {/* ================================================== */}
+                {/* TUTORIAL PGADMIN 4 */}
+                {/* ================================================== */}
+                <div className="academic-card bg-white">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="h-9 w-9 rounded-lg bg-[#336791]/10 flex items-center justify-center shrink-0">
+                      <Database className="h-5 w-5 text-[#336791]" />
+                    </div>
+                    <div>
+                      <span className="eyebrow-label block">Implementación Real</span>
+                      <h2 className="card-title">Guía de Despliegue en pgAdmin 4 — PostgreSQL</h2>
+                    </div>
+                  </div>
+                  <p className="text-xs text-[#6B7280] mb-8 ml-12">
+                    Sigue estos 6 pasos para crear la base de datos corporativa en tu instancia local de PostgreSQL usando la interfaz gráfica de pgAdmin 4.
+                  </p>
+
+                  {/* Steps */}
+                  <div className="space-y-6">
+
+                    {/* STEP 1 */}
+                    <div className="rounded-2xl border border-[#336791]/20 overflow-hidden">
+                      {/* Step header */}
+                      <div className="bg-[#336791] px-5 py-3 flex items-center gap-3">
+                        <span className="h-7 w-7 rounded-full bg-white/20 text-white text-xs font-black flex items-center justify-center shrink-0">1</span>
+                        <MonitorDot className="h-4 w-4 text-white/80 shrink-0" />
+                        <h3 className="text-sm font-bold text-white">Conectar al Servidor PostgreSQL</h3>
+                      </div>
+                      {/* pgAdmin UI mockup */}
+                      <div className="grid grid-cols-1 md:grid-cols-12 bg-white">
+                        {/* Sidebar */}
+                        <div className="md:col-span-4 bg-[#21262D] p-4 border-r border-slate-700">
+                          <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-3">Browser</p>
+                          <div className="space-y-1">
+                            <div className="flex items-center gap-2 px-2 py-1.5 rounded text-slate-300 hover:bg-slate-700/50 cursor-pointer">
+                              <span className="text-[10px]">🖥️</span>
+                              <span className="text-[11px] font-semibold">Servers (1)</span>
+                            </div>
+                            <div className="flex items-center gap-2 px-2 py-1.5 rounded bg-[#336791]/30 border border-[#336791]/40 cursor-pointer ml-3">
+                              <span className="text-[10px]">🐘</span>
+                              <span className="text-[11px] font-bold text-[#79C0FF]">PostgreSQL 15</span>
+                              <span className="ml-auto text-[8px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 rounded font-bold">ONLINE</span>
+                            </div>
+                            <div className="flex items-center gap-2 px-2 py-1 ml-6">
+                              <FolderOpen className="h-3 w-3 text-[#E8A020]" />
+                              <span className="text-[10px] text-slate-400">Databases</span>
+                            </div>
+                            <div className="flex items-center gap-2 px-2 py-1 ml-6">
+                              <FolderOpen className="h-3 w-3 text-slate-500" />
+                              <span className="text-[10px] text-slate-500">Login/Group Roles</span>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Content */}
+                        <div className="md:col-span-8 p-5">
+                          <p className="text-[11px] font-bold text-[#1E2A5E] mb-3">Acción requerida:</p>
+                          <ol className="space-y-2 text-[11px] text-[#4B5563] list-none">
+                            <li className="flex gap-2"><span className="text-[#336791] font-bold shrink-0">①</span> Abre pgAdmin 4 desde el menú de inicio.</li>
+                            <li className="flex gap-2"><span className="text-[#336791] font-bold shrink-0">②</span> En el panel <strong>Browser</strong> (izquierda), expande <code className="bg-slate-100 px-1 rounded text-[10px]">Servers</code>.</li>
+                            <li className="flex gap-2"><span className="text-[#336791] font-bold shrink-0">③</span> Haz doble clic en <code className="bg-slate-100 px-1 rounded text-[10px]">PostgreSQL 15</code> e ingresa tu contraseña de <strong>postgres</strong>.</li>
+                            <li className="flex gap-2"><span className="text-[#336791] font-bold shrink-0">④</span> El ícono del servidor cambiará a <span className="text-emerald-600 font-bold">verde ●</span> indicando conexión activa.</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* STEP 2 */}
+                    <div className="rounded-2xl border border-[#E8A020]/30 overflow-hidden">
+                      <div className="bg-[#E8A020] px-5 py-3 flex items-center gap-3">
+                        <span className="h-7 w-7 rounded-full bg-white/20 text-white text-xs font-black flex items-center justify-center shrink-0">2</span>
+                        <Database className="h-4 w-4 text-white/80 shrink-0" />
+                        <h3 className="text-sm font-bold text-white">Crear la Base de Datos: <code className="bg-white/20 px-1.5 rounded">corporativo_db</code></h3>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-12 bg-white">
+                        {/* Context menu mockup */}
+                        <div className="md:col-span-5 bg-slate-50 border-r border-slate-100 p-4 flex items-start justify-center">
+                          <div className="bg-white border border-slate-200 rounded-lg shadow-xl text-[11px] min-w-[200px] overflow-hidden">
+                            <div className="bg-[#21262D] px-3 py-2 text-slate-300 text-[10px] font-bold">Menú contextual — Databases</div>
+                            <div className="divide-y divide-slate-100">
+                              <div className="px-4 py-2 hover:bg-[#336791]/5 text-[#6B7280]">Refresh...</div>
+                              <div className="px-4 py-2 bg-[#336791]/10 text-[#336791] font-bold flex items-center gap-2">
+                                <Plus className="h-3 w-3" /> Create → Database...
+                              </div>
+                              <div className="px-4 py-2 hover:bg-slate-50 text-[#6B7280]">Query Tool</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="md:col-span-7 p-5">
+                          <p className="text-[11px] font-bold text-[#1E2A5E] mb-3">Acción requerida:</p>
+                          <ol className="space-y-2 text-[11px] text-[#4B5563] list-none">
+                            <li className="flex gap-2"><span className="text-[#E8A020] font-bold shrink-0">①</span> Clic derecho sobre <code className="bg-slate-100 px-1 rounded text-[10px]">Databases</code> → <strong>Create → Database...</strong></li>
+                            <li className="flex gap-2"><span className="text-[#E8A020] font-bold shrink-0">②</span> En el campo <strong>Database</strong> escribe: <code className="bg-amber-50 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-bold text-amber-700">corporativo_db</code></li>
+                            <li className="flex gap-2"><span className="text-[#E8A020] font-bold shrink-0">③</span> En <strong>Owner</strong>, selecciona <code className="bg-slate-100 px-1 rounded text-[10px]">postgres</code>.</li>
+                            <li className="flex gap-2"><span className="text-[#E8A020] font-bold shrink-0">④</span> Haz clic en <strong>Save</strong>. La BD aparecerá en el árbol.</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* STEP 3 */}
+                    <div className="rounded-2xl border border-[#2D9B6F]/30 overflow-hidden">
+                      <div className="bg-[#2D9B6F] px-5 py-3 flex items-center gap-3">
+                        <span className="h-7 w-7 rounded-full bg-white/20 text-white text-xs font-black flex items-center justify-center shrink-0">3</span>
+                        <Terminal className="h-4 w-4 text-white/80 shrink-0" />
+                        <h3 className="text-sm font-bold text-white">Ejecutar el Script DDL — Crear Tablas</h3>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-12 bg-white">
+                        <div className="md:col-span-5 bg-[#1E2A3E] p-4 border-r border-slate-700 flex flex-col">
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="h-2.5 w-2.5 rounded-full bg-red-400"></div>
+                            <div className="h-2.5 w-2.5 rounded-full bg-yellow-400"></div>
+                            <div className="h-2.5 w-2.5 rounded-full bg-green-400"></div>
+                            <span className="text-[9px] text-slate-500 ml-1 font-mono">Query Tool — corporativo_db</span>
+                          </div>
+                          <div className="font-mono text-[10px] text-slate-300 leading-relaxed flex-1">
+                            <span className="text-[#79C0FF]">CREATE TABLE</span> <span className="text-[#F0883E]">clientes</span> (<br/>
+                            &nbsp;&nbsp;id <span className="text-[#79C0FF]">SERIAL PRIMARY KEY</span>,<br/>
+                            &nbsp;&nbsp;nombre <span className="text-[#79C0FF]">VARCHAR</span>(100),<br/>
+                            &nbsp;&nbsp;...<br/>
+                            );<br/>
+                            <br/>
+                            <span className="text-[#79C0FF]">CREATE TABLE</span> <span className="text-[#F0883E]">productos</span> (<br/>
+                            &nbsp;&nbsp;id <span className="text-[#79C0FF]">SERIAL PRIMARY KEY</span>,<br/>
+                            &nbsp;&nbsp;...<br/>
+                            );
+                          </div>
+                          <div className="mt-3 pt-3 border-t border-slate-700 flex items-center gap-2">
+                            <span className="bg-emerald-500/20 text-emerald-400 text-[9px] font-bold px-2 py-0.5 rounded border border-emerald-500/30">✓ Query returned successfully</span>
+                          </div>
+                        </div>
+                        <div className="md:col-span-7 p-5">
+                          <p className="text-[11px] font-bold text-[#1E2A5E] mb-3">Acción requerida:</p>
+                          <ol className="space-y-2 text-[11px] text-[#4B5563] list-none">
+                            <li className="flex gap-2"><span className="text-[#2D9B6F] font-bold shrink-0">①</span> Expande <code className="bg-slate-100 px-1 rounded text-[10px]">corporativo_db</code> en el árbol.</li>
+                            <li className="flex gap-2"><span className="text-[#2D9B6F] font-bold shrink-0">②</span> Clic derecho sobre la BD → <strong>Query Tool</strong>.</li>
+                            <li className="flex gap-2"><span className="text-[#2D9B6F] font-bold shrink-0">③</span> Pega el script descargado con el botón <strong>"Descargar .SQL"</strong> de arriba.</li>
+                            <li className="flex gap-2"><span className="text-[#2D9B6F] font-bold shrink-0">④</span> Presiona <kbd className="bg-slate-100 border border-slate-300 px-1.5 py-0.5 rounded text-[9px] font-mono">F5</kbd> o el botón <strong>▶ Execute</strong> para correr todo el script.</li>
+                            <li className="flex gap-2"><span className="text-[#2D9B6F] font-bold shrink-0">⑤</span> Verifica el mensaje <span className="text-emerald-600 font-bold">"Query returned successfully"</span> en el panel inferior.</li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* STEP 4 */}
+                    <div className="rounded-2xl border border-[#7C3AED]/30 overflow-hidden">
+                      <div className="bg-[#7C3AED] px-5 py-3 flex items-center gap-3">
+                        <span className="h-7 w-7 rounded-full bg-white/20 text-white text-xs font-black flex items-center justify-center shrink-0">4</span>
+                        <UserCog className="h-4 w-4 text-white/80 shrink-0" />
+                        <h3 className="text-sm font-bold text-white">Crear Roles y Usuario <code className="bg-white/20 px-1.5 rounded">grupo2</code></h3>
+                      </div>
+                      <div className="bg-white p-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+                          {/* Create role steps */}
+                          <div className="bg-[#7C3AED]/5 border border-[#7C3AED]/20 rounded-xl p-4">
+                            <h4 className="text-[10px] font-extrabold text-[#7C3AED] uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                              <Key className="h-3.5 w-3.5" /> Crear Roles en pgAdmin
+                            </h4>
+                            <ol className="space-y-2 text-[11px] text-[#4B5563] list-none">
+                              <li className="flex gap-2"><span className="text-[#7C3AED] font-bold shrink-0">①</span> En el árbol: <code className="bg-slate-100 px-1 rounded text-[10px]">Login/Group Roles</code> → clic derecho → <strong>Create → Login/Group Role...</strong></li>
+                              <li className="flex gap-2"><span className="text-[#7C3AED] font-bold shrink-0">②</span> Pestaña <strong>General</strong> → Name: <code className="bg-violet-50 border border-violet-200 px-1.5 rounded text-[10px] font-bold text-violet-700">Rol_Administrador</code></li>
+                              <li className="flex gap-2"><span className="text-[#7C3AED] font-bold shrink-0">③</span> Pestaña <strong>Privileges</strong> → activa <em>Can Login: No</em> (es un rol de grupo).</li>
+                              <li className="flex gap-2"><span className="text-[#7C3AED] font-bold shrink-0">④</span> Repite para <code className="bg-slate-100 px-1 rounded text-[10px]">Rol_Supervisor</code> y <code className="bg-slate-100 px-1 rounded text-[10px]">Rol_UsuarioEstandar</code>.</li>
+                            </ol>
+                          </div>
+                          {/* Create user */}
+                          <div className="bg-[#1E2A5E]/5 border border-[#1E2A5E]/20 rounded-xl p-4">
+                            <h4 className="text-[10px] font-extrabold text-[#1E2A5E] uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                              <Users className="h-3.5 w-3.5" /> Crear Usuario <code>grupo2</code>
+                            </h4>
+                            <ol className="space-y-2 text-[11px] text-[#4B5563] list-none">
+                              <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">①</span> Clic derecho → <strong>Create → Login/Group Role...</strong></li>
+                              <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">②</span> <strong>General</strong>: Name = <code className="bg-slate-100 px-1 rounded text-[10px] font-bold">grupo2</code></li>
+                              <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">③</span> <strong>Definition</strong>: Password = <code className="bg-slate-100 px-1 rounded text-[10px]">••••••••••</code></li>
+                              <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">④</span> <strong>Privileges</strong>: activa <em>Can Login: Yes</em>.</li>
+                              <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">⑤</span> <strong>Membership</strong>: agrega <code className="bg-slate-100 px-1 rounded text-[10px]">Rol_Administrador</code> → <strong>Save</strong>.</li>
+                            </ol>
+                          </div>
+                        </div>
+                        {/* Membership visual */}
+                        <div className="bg-[#21262D] rounded-xl p-4">
+                          <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-3">Pestaña Membership — Login Role: grupo2</p>
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-[10px]">
+                              <thead>
+                                <tr className="border-b border-slate-700">
+                                  <th className="text-left pb-2 text-slate-400 font-semibold pr-8">Role</th>
+                                  <th className="text-left pb-2 text-slate-400 font-semibold pr-8">Base de datos</th>
+                                  <th className="text-left pb-2 text-slate-400 font-semibold">Admin option</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-700/50">
+                                <tr>
+                                  <td className="py-2 text-[#79C0FF] font-semibold pr-8">Rol_Administrador</td>
+                                  <td className="py-2 text-slate-300 pr-8">corporativo_db</td>
+                                  <td className="py-2"><span className="bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded text-[9px] font-bold">✓ Activo</span></td>
+                                </tr>
+                                <tr>
+                                  <td className="py-2 text-slate-500 pr-8">Rol_Supervisor</td>
+                                  <td className="py-2 text-slate-600 pr-8">corporativo_db</td>
+                                  <td className="py-2"><span className="bg-slate-700 text-slate-500 px-1.5 py-0.5 rounded text-[9px]">No asignado</span></td>
+                                </tr>
+                                <tr>
+                                  <td className="py-2 text-slate-500 pr-8">Rol_UsuarioEstandar</td>
+                                  <td className="py-2 text-slate-600 pr-8">corporativo_db</td>
+                                  <td className="py-2"><span className="bg-slate-700 text-slate-500 px-1.5 py-0.5 rounded text-[9px]">No asignado</span></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* STEP 5 */}
+                    <div className="rounded-2xl border border-[#0891B2]/30 overflow-hidden">
+                      <div className="bg-[#0891B2] px-5 py-3 flex items-center gap-3">
+                        <span className="h-7 w-7 rounded-full bg-white/20 text-white text-xs font-black flex items-center justify-center shrink-0">5</span>
+                        <Shield className="h-4 w-4 text-white/80 shrink-0" />
+                        <h3 className="text-sm font-bold text-white">Asignar Permisos GRANT por Rol (DCL)</h3>
+                      </div>
+                      <div className="bg-white p-5">
+                        <p className="text-[11px] text-[#4B5563] mb-4">
+                          Ejecuta este bloque DCL en el <strong>Query Tool</strong> de <code className="bg-slate-100 px-1 rounded text-[10px]">corporativo_db</code> para asignar privilegios diferenciados a cada rol:
+                        </p>
+                        <div className="bg-[#1E2A3E] rounded-xl p-4 font-mono text-[10px] text-slate-200 leading-relaxed overflow-x-auto">
+                          <pre className="text-left whitespace-pre">{`-- ① Rol Administrador: acceso total
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO Rol_Administrador;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO Rol_Administrador;
+
+-- ② Rol Supervisor: SELECT, INSERT, UPDATE (sin DELETE)
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO Rol_Supervisor;
+
+-- ③ Rol Usuario Estándar: solo consultas
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO Rol_UsuarioEstandar;
+
+-- ④ Asignar usuario grupo2 a un rol
+GRANT Rol_Administrador TO grupo2;`}</pre>
+                        </div>
+                        <div className="flex items-center gap-2 mt-3">
+                          <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                          <p className="text-[10px] text-[#6B7280]">Presiona <kbd className="bg-slate-100 border border-slate-300 px-1.5 py-0.5 rounded text-[9px] font-mono">F5</kbd> para ejecutar. Verifica con <code className="bg-slate-100 px-1 rounded text-[10px]">\dp</code> en psql o en el panel <strong>Privileges</strong> de cada tabla.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* STEP 6 */}
+                    <div className="rounded-2xl border border-[#DC2626]/30 overflow-hidden">
+                      <div className="bg-[#DC2626] px-5 py-3 flex items-center gap-3">
+                        <span className="h-7 w-7 rounded-full bg-white/20 text-white text-xs font-black flex items-center justify-center shrink-0">6</span>
+                        <ArchiveRestore className="h-4 w-4 text-white/80 shrink-0" />
+                        <h3 className="text-sm font-bold text-white">Copia de Seguridad y Restauración (Backup / Restore)</h3>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-slate-100 bg-white">
+                        {/* Backup */}
+                        <div className="p-5">
+                          <h4 className="text-[11px] font-extrabold text-[#DC2626] uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                            <HardDrive className="h-3.5 w-3.5" /> Generar Backup
+                          </h4>
+                          <ol className="space-y-2 text-[11px] text-[#4B5563] list-none">
+                            <li className="flex gap-2"><span className="text-[#DC2626] font-bold shrink-0">①</span> Clic derecho sobre <code className="bg-slate-100 px-1 rounded text-[10px]">corporativo_db</code> → <strong>Backup...</strong></li>
+                            <li className="flex gap-2"><span className="text-[#DC2626] font-bold shrink-0">②</span> <strong>Filename</strong>: <code className="bg-red-50 border border-red-200 px-1.5 rounded text-[10px] font-bold text-red-700">backuplocal</code></li>
+                            <li className="flex gap-2"><span className="text-[#DC2626] font-bold shrink-0">③</span> <strong>Format</strong>: <em>Custom</em> (.backup) o <em>Plain</em> (.sql).</li>
+                            <li className="flex gap-2"><span className="text-[#DC2626] font-bold shrink-0">④</span> Clic en <strong>Backup</strong>. Aparece el diálogo:<br/>
+                              <span className="ml-4 mt-1 block bg-blue-50 border border-blue-200 text-blue-700 text-[10px] px-3 py-1.5 rounded-lg italic">"The backup of database 'corporativo_db' has been completed successfully."</span>
+                            </li>
+                            <li className="flex gap-2"><span className="text-[#DC2626] font-bold shrink-0">⑤</span> El archivo se guarda en la ruta indicada (ej. <code className="bg-slate-100 px-1 rounded text-[10px]">C:\backuplocal</code>).</li>
+                          </ol>
+                        </div>
+                        {/* Restore */}
+                        <div className="p-5 bg-slate-50/50">
+                          <h4 className="text-[11px] font-extrabold text-[#1E2A5E] uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                            <RefreshCw className="h-3.5 w-3.5" /> Restaurar Backup
+                          </h4>
+                          <ol className="space-y-2 text-[11px] text-[#4B5563] list-none">
+                            <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">①</span> Clic derecho sobre <code className="bg-slate-100 px-1 rounded text-[10px]">corporativo_db</code> → <strong>Restore...</strong></li>
+                            <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">②</span> Selecciona el archivo <code className="bg-slate-100 px-1 rounded text-[10px]">backuplocal.backup</code> con el explorador de archivos.</li>
+                            <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">③</span> Haz clic en <strong>Restore</strong>.</li>
+                            <li className="flex gap-2"><span className="text-[#1E2A5E] font-bold shrink-0">④</span> Verifica con un <strong>Query Tool</strong>:<br/>
+                              <code className="ml-4 mt-1 block bg-[#1E2A3E] text-emerald-400 text-[10px] px-3 py-1.5 rounded-lg font-mono">SELECT * FROM clientes;</code>
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>{/* end steps */}
+
+                  {/* Footer note */}
+                  <div className="mt-8 p-4 bg-[#336791]/5 border border-[#336791]/20 rounded-xl flex items-start gap-3">
+                    <BookMarked className="h-5 w-5 text-[#336791] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-[11px] font-bold text-[#1E2A5E] mb-1">Requisito del sistema</p>
+                      <p className="text-[11px] text-[#6B7280] leading-relaxed">
+                        Necesitas <strong>PostgreSQL 15+</strong> y <strong>pgAdmin 4</strong> instalados. Descárgalos desde{" "}
+                        <a href="https://www.postgresql.org/download/" target="_blank" rel="noopener noreferrer" className="text-[#336791] underline font-semibold">postgresql.org</a>.
+                        El instalador de Windows incluye pgAdmin 4 de forma automática.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>{/* end tutorial card */}
+
               </div>
             )}
 
