@@ -6,6 +6,8 @@ const footerLinks = [
   { label: "Inicio", href: "/" },
   { label: "Caso Valeria", href: "/caso-valeria" },
   { label: "Caso Juan", href: "/caso-juan" },
+  { label: "Sesión 5", href: "/sesion-5" },
+  { label: "Sesión 6", href: "/sesion-6" },
   { label: "BAP — Valeria", href: "/bap-valeria" },
   { label: "BAP — Juan", href: "/bap-juan" },
 ];

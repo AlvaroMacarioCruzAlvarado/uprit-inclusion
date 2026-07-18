@@ -9,6 +9,9 @@ const navLinks = [
   { label: "INICIO", href: "/" },
   { label: "CASO VALERIA", href: "/caso-valeria" },
   { label: "CASO JUAN", href: "/caso-juan" },
+  { label: "SESIÓN 5", href: "/sesion-5" },
+  { label: "SESIÓN 6", href: "/sesion-6" },
+  { label: "SESIÓN 7", href: "/sesion-7" },
   { label: "BAP — VALERIA", href: "/bap-valeria" },
   { label: "BAP — JUAN", href: "/bap-juan" },
 ];

@@ -80,8 +80,95 @@ export default function Home() {
             </Link>
           </div>
 
-          
+        </div>
+      </section>
 
+      {/* SECTIONS / CASES OVERVIEW */}
+      <section className="py-16 bg-[#F5F6FA] border-y border-[#1E2A5E]/8 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="eyebrow-label block mb-2">
+              Contenido Académico
+            </span>
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#1E2A5E] uppercase tracking-tight">
+              Módulos y Casos Prácticos
+            </h2>
+            <p className="text-sm text-[#6B7280] mt-2 max-w-xl mx-auto">
+              Accede a las sesiones de aprendizaje diseñadas bajo el enfoque DUA y a las matrices de mapeo de barreras (BAP).
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {/* CARD 1: CASO VALERIA */}
+            <div className="academic-card bg-white flex flex-col justify-between hover:shadow-lg hover:-translate-y-0.5 transition-all">
+              <div>
+                <span className="text-[10px] font-bold text-[#3730A3] uppercase tracking-wider block mb-2">Caso de Estudio</span>
+                <h3 className="text-sm font-bold text-[#1E2A5E] mb-2 leading-tight">Valeria R. (TDAH)</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed mb-4">
+                  Análisis pedagógico y propuesta de ajustes razonables para una estudiante de 4to de secundaria.
+                </p>
+              </div>
+              <Link href="/caso-valeria" className="text-xs font-bold text-[#2D9B6F] hover:text-[#3BB882] inline-flex items-center gap-1.5 uppercase mt-4">
+                Ver Ficha <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            {/* CARD 2: CASO JUAN */}
+            <div className="academic-card bg-white flex flex-col justify-between hover:shadow-lg hover:-translate-y-0.5 transition-all">
+              <div>
+                <span className="text-[10px] font-bold text-[#3730A3] uppercase tracking-wider block mb-2">Caso de Estudio</span>
+                <h3 className="text-sm font-bold text-[#1E2A5E] mb-2 leading-tight">Juan P. (Pensamiento Abstracto)</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed mb-4">
+                  Barreras del aprendizaje en matemática para un estudiante de 3er grado de secundaria.
+                </p>
+              </div>
+              <Link href="/caso-juan" className="text-xs font-bold text-[#2D9B6F] hover:text-[#3BB882] inline-flex items-center gap-1.5 uppercase mt-4">
+                Ver Ficha <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            {/* CARD 3: SESIÓN 5 */}
+            <div className="academic-card bg-white flex flex-col justify-between hover:shadow-lg hover:-translate-y-0.5 transition-all border-l-4 border-l-[#2D9B6F]">
+              <div>
+                <span className="text-[10px] font-bold text-[#2D9B6F] uppercase tracking-wider block mb-2">Sesión DUA</span>
+                <h3 className="text-sm font-bold text-[#1E2A5E] mb-2 leading-tight">Sesión 5: Porcentajes</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed mb-4">
+                  Planificación de clase inclusiva sobre porcentajes en situaciones comerciales de la vida cotidiana.
+                </p>
+              </div>
+              <Link href="/sesion-5" className="text-xs font-bold text-[#2D9B6F] hover:text-[#3BB882] inline-flex items-center gap-1.5 uppercase mt-4">
+                Ver Sesión <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            {/* CARD 4: SESIÓN 6 */}
+            <div className="academic-card bg-white flex flex-col justify-between hover:shadow-lg hover:-translate-y-0.5 transition-all border-l-4 border-l-[#DC2626]">
+              <div>
+                <span className="text-[10px] font-bold text-[#DC2626] uppercase tracking-wider block mb-2">Caso Crítico</span>
+                <h3 className="text-sm font-bold text-[#1E2A5E] mb-2 leading-tight">Sesión 6: Caso Carlos</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed mb-4">
+                  Derribando barreras didácticas y actitudinales en el aula para un estudiante con TDAH combinado.
+                </p>
+              </div>
+              <Link href="/sesion-6" className="text-xs font-bold text-[#2D9B6F] hover:text-[#3BB882] inline-flex items-center gap-1.5 uppercase mt-4">
+                Ver Caso <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            {/* CARD 5: SESIÓN 7 */}
+            <div className="academic-card bg-white flex flex-col justify-between hover:shadow-lg hover:-translate-y-0.5 transition-all border-l-4 border-l-[#E8A020]">
+              <div>
+                <span className="text-[10px] font-bold text-[#E8A020] uppercase tracking-wider block mb-2">Gestión y Seguridad</span>
+                <h3 className="text-sm font-bold text-[#1E2A5E] mb-2 leading-tight">Sesión 7: Seguridad y Admin.</h3>
+                <p className="text-xs text-[#6B7280] leading-relaxed mb-4">
+                  Control de acceso, permisos por rol, auditorías de seguridad, respaldos e historial de operaciones.
+                </p>
+              </div>
+              <Link href="/sesion-7" className="text-xs font-bold text-[#2D9B6F] hover:text-[#3BB882] inline-flex items-center gap-1.5 uppercase mt-4">
+                Consola BD <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
